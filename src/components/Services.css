@@ -1,0 +1,35 @@
+.services-page {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.services-page__hero {
+  padding: 0;
+  overflow: hidden;
+}
+
+.services-page__section {
+  border: none;
+  box-shadow: none;
+}
+
+.services-page__section h2 {
+  margin: 0 0 0.65rem 0;
+}
+
+.services-page__section p {
+  max-width: 72ch;
+}
+
+.services-page__section .feature-list,
+.services-page__section .testimonial-grid,
+.services-page__section .faq-accordion__items {
+  margin-top: 0.5rem;
+}
+
+@media (max-width: 760px) {
+  .services-page {
+    gap: 1em;
+  }
+}
