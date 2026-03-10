@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { NavLink, Link } from 'react-router-dom';
 import './Header.css';
+import logoMark from '../../120w/JG white 120.png';
 
 const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -10,7 +11,10 @@ const Header = () => {
     <header className="header">
       <div className="header-container">
         <h1 className="logo">
-          <Link to="/" className="logo-link">Jeff Gage</Link>
+          <Link to="/" className="logo-link">
+            <img src={logoMark} alt="" className="logo-mark" aria-hidden="true" />
+            <span>Jeff Gage</span>
+          </Link>
         </h1>
         <button
           className="menu-toggle"
