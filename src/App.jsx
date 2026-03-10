@@ -11,24 +11,11 @@ import './App.css';
 
 function App() {
   useEffect(() => {
-    // Defaults: Cool Teal palette, Gradient Background design, Modern fonts
-    const palette = localStorage.getItem('palette') || 'palette-5';
-    const design = localStorage.getItem('design') || 'design-4';
+    // Defaults come from theme.css (:root) for colors.
+    const design = localStorage.getItem('design') || 'design-6';
     const font = localStorage.getItem('font') || 'font-2';
     const layout = localStorage.getItem('layout') || '';
-    document.documentElement.className = `${palette} ${design} ${font} ${layout}`.trim();
-
-    const storedPaletteVars = localStorage.getItem('customPaletteVars');
-    if (storedPaletteVars) {
-      try {
-        const vars = JSON.parse(storedPaletteVars);
-        Object.entries(vars).forEach(([name, value]) => {
-          document.documentElement.style.setProperty(name, value);
-        });
-      } catch {
-        // ignore invalid stored palette vars
-      }
-    }
+    document.documentElement.className = `${design} ${font} ${layout}`.trim();
   }, []);
 
   return (

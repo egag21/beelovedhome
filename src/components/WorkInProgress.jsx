@@ -17,19 +17,6 @@ import ImageSingle from './layouts/ImageSingle';
 import ImageTwoUp from './layouts/ImageTwoUp';
 import ImageGridFour from './layouts/ImageGridFour';
 
-const defaultPaletteVars = {
-  '--primary-color': '#17a2b8',
-  '--secondary-color': '#6c757d',
-  '--tertiary-color': '#5f9ea0',
-  '--dark-color': '#2f4f4f',
-  '--accent-color': '#ffffff',
-  '--background-color': '#f8f9fa',
-  '--text-color': '#212529',
-  '--body-text': '#212529',
-  '--neutral-gray': '#eaf7f9',
-  '--sidebar-gray': '#f3fbfc',
-};
-
 const colorFields = [
   { key: '--primary-color', label: 'Primary' },
   { key: '--secondary-color', label: 'Secondary' },
@@ -43,35 +30,62 @@ const colorFields = [
   { key: '--sidebar-gray', label: 'Sidebar Gray' },
 ];
 
+const normalizeToHex = (value) => {
+  const trimmed = value.trim().toLowerCase();
+  if (!trimmed) return '#000000';
+
+  if (trimmed.startsWith('#')) {
+    if (trimmed.length === 4) {
+      const r = trimmed[1];
+      const g = trimmed[2];
+      const b = trimmed[3];
+      return `#${r}${r}${g}${g}${b}${b}`;
+    }
+    return trimmed.slice(0, 7);
+  }
+
+  const rgbMatch = trimmed.match(/^rgba?\(([^)]+)\)$/);
+  if (!rgbMatch) return '#000000';
+
+  const [r, g, b] = rgbMatch[1]
+    .split(',')
+    .slice(0, 3)
+    .map(part => Math.max(0, Math.min(255, Number.parseInt(part.trim(), 10) || 0)));
+
+  return `#${[r, g, b].map(channel => channel.toString(16).padStart(2, '0')).join('')}`;
+};
+
+const getThemeDefaultPaletteVars = () => {
+  if (typeof window === 'undefined') {
+    return Object.fromEntries(colorFields.map(field => [field.key, '#000000']));
+  }
+
+  const styles = getComputedStyle(document.documentElement);
+  return Object.fromEntries(
+    colorFields.map(field => [field.key, normalizeToHex(styles.getPropertyValue(field.key))]),
+  );
+};
+
 const WorkInProgress = () => {
-  const [selectedPalette] = useState(localStorage.getItem('palette') || 'palette-5');
-  const [selectedDesign, setSelectedDesign] = useState(localStorage.getItem('design') || 'design-4');
+  const [selectedDesign, setSelectedDesign] = useState(localStorage.getItem('design') || 'design-6');
   const [selectedFont, setSelectedFont] = useState(localStorage.getItem('font') || 'font-2');
   const [selectedLayout, setSelectedLayout] = useState(() => {
     const storedLayout = localStorage.getItem('layout');
     return storedLayout === 'layout-3' ? 'layout-9' : storedLayout || 'layout-5';
   });
-  const [paletteVars, setPaletteVars] = useState(() => {
-    const stored = localStorage.getItem('customPaletteVars');
-    if (!stored) return defaultPaletteVars;
-    try {
-      return { ...defaultPaletteVars, ...JSON.parse(stored) };
-    } catch {
-      return defaultPaletteVars;
-    }
-  });
+  const [paletteVars, setPaletteVars] = useState(() => getThemeDefaultPaletteVars());
+  const [copyLabel, setCopyLabel] = useState('Copy Palette');
 
   useEffect(() => {
     // Apply the selected palette, design, font, and layout
-    document.documentElement.className = `${selectedPalette} ${selectedDesign} ${selectedFont} ${selectedLayout}`;
+    document.documentElement.className = `${selectedDesign} ${selectedFont} ${selectedLayout}`;
     Object.entries(paletteVars).forEach(([name, value]) => {
       document.documentElement.style.setProperty(name, value);
     });
     localStorage.setItem('design', selectedDesign);
     localStorage.setItem('font', selectedFont);
     localStorage.setItem('layout', selectedLayout);
-    localStorage.setItem('customPaletteVars', JSON.stringify(paletteVars));
-  }, [selectedPalette, selectedDesign, selectedFont, selectedLayout, paletteVars]);
+  }, [selectedDesign, selectedFont, selectedLayout, paletteVars]);
 
   const designs = [
     { value: 'design-1', label: 'Horizontal Bar' },
@@ -114,6 +128,32 @@ const WorkInProgress = () => {
     setPaletteVars(prev => ({ ...prev, [key]: value }));
   };
 
+  const buildPaletteCss = () => {
+    const lines = colorFields.map(field => `  ${field.key}: ${paletteVars[field.key]};`);
+    return `:root {\n${lines.join('\n')}\n}`;
+  };
+
+  const handleCopyPalette = async () => {
+    const paletteCss = buildPaletteCss();
+
+    try {
+      await navigator.clipboard.writeText(paletteCss);
+    } catch {
+      const textArea = document.createElement('textarea');
+      textArea.value = paletteCss;
+      textArea.setAttribute('readonly', '');
+      textArea.style.position = 'absolute';
+      textArea.style.left = '-9999px';
+      document.body.appendChild(textArea);
+      textArea.select();
+      document.execCommand('copy');
+      document.body.removeChild(textArea);
+    }
+
+    setCopyLabel('Copied');
+    window.setTimeout(() => setCopyLabel('Copy Palette'), 1200);
+  };
+
   return (
     <div className="page-content">
       <div className="wip-container">
@@ -135,6 +175,9 @@ const WorkInProgress = () => {
                   </label>
                 ))}
               </div>
+              <button type="button" className="palette-copy-btn" onClick={handleCopyPalette}>
+                {copyLabel}
+              </button>
             </div>
             <div className="design-selector">
               <h2>Design Style</h2>

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, Link } from 'react-router-dom';
 import './Header.css';
 
 const Header = () => {
@@ -9,7 +9,9 @@ const Header = () => {
   return (
     <header className="header">
       <div className="header-container">
-        <h1 className="logo">Jeff Gage</h1>
+        <h1 className="logo">
+          <Link to="/" className="logo-link">Jeff Gage</Link>
+        </h1>
         <button
           className="menu-toggle"
           onClick={toggleMenu}
