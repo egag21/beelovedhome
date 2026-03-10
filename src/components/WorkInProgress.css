@@ -712,6 +712,39 @@
   color: var(--primary-color);
 }
 
+.color-picker-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.55rem;
+}
+
+.color-picker-row {
+  display: grid;
+  grid-template-columns: minmax(90px, 1fr) auto auto;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.45rem 0.55rem;
+  border: 1px solid color-mix(in srgb, var(--primary-color) 20%, transparent);
+  border-radius: 6px;
+  background: color-mix(in srgb, var(--neutral-gray) 45%, var(--background-color));
+}
+
+.color-picker-row input[type='color'] {
+  width: 2.2rem;
+  height: 2rem;
+  padding: 0;
+  border: 1px solid color-mix(in srgb, var(--dark-color) 35%, transparent);
+  border-radius: 4px;
+  background: transparent;
+  cursor: pointer;
+}
+
+.color-picker-row code {
+  font-size: 0.82rem;
+  color: var(--body-text, var(--text-color));
+  opacity: 0.9;
+}
+
 .font-selector {
   grid-area: font;
   display: flex;

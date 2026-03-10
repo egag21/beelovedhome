@@ -17,31 +17,61 @@ import ImageSingle from './layouts/ImageSingle';
 import ImageTwoUp from './layouts/ImageTwoUp';
 import ImageGridFour from './layouts/ImageGridFour';
 
+const defaultPaletteVars = {
+  '--primary-color': '#17a2b8',
+  '--secondary-color': '#6c757d',
+  '--tertiary-color': '#5f9ea0',
+  '--dark-color': '#2f4f4f',
+  '--accent-color': '#ffffff',
+  '--background-color': '#f8f9fa',
+  '--text-color': '#212529',
+  '--body-text': '#212529',
+  '--neutral-gray': '#eaf7f9',
+  '--sidebar-gray': '#f3fbfc',
+};
+
+const colorFields = [
+  { key: '--primary-color', label: 'Primary' },
+  { key: '--secondary-color', label: 'Secondary' },
+  { key: '--tertiary-color', label: 'Tertiary' },
+  { key: '--dark-color', label: 'Dark' },
+  { key: '--accent-color', label: 'Accent' },
+  { key: '--background-color', label: 'Background' },
+  { key: '--text-color', label: 'Text' },
+  { key: '--body-text', label: 'Body Text' },
+  { key: '--neutral-gray', label: 'Neutral Gray' },
+  { key: '--sidebar-gray', label: 'Sidebar Gray' },
+];
+
 const WorkInProgress = () => {
-  const [selectedPalette, setSelectedPalette] = useState(localStorage.getItem('palette') || 'palette-5');
+  const [selectedPalette] = useState(localStorage.getItem('palette') || 'palette-5');
   const [selectedDesign, setSelectedDesign] = useState(localStorage.getItem('design') || 'design-4');
   const [selectedFont, setSelectedFont] = useState(localStorage.getItem('font') || 'font-2');
   const [selectedLayout, setSelectedLayout] = useState(() => {
     const storedLayout = localStorage.getItem('layout');
     return storedLayout === 'layout-3' ? 'layout-9' : storedLayout || 'layout-5';
   });
+  const [paletteVars, setPaletteVars] = useState(() => {
+    const stored = localStorage.getItem('customPaletteVars');
+    if (!stored) return defaultPaletteVars;
+    try {
+      return { ...defaultPaletteVars, ...JSON.parse(stored) };
+    } catch {
+      return defaultPaletteVars;
+    }
+  });
 
   useEffect(() => {
     // Apply the selected palette, design, font, and layout
     document.documentElement.className = `${selectedPalette} ${selectedDesign} ${selectedFont} ${selectedLayout}`;
-    localStorage.setItem('palette', selectedPalette);
+    Object.entries(paletteVars).forEach(([name, value]) => {
+      document.documentElement.style.setProperty(name, value);
+    });
     localStorage.setItem('design', selectedDesign);
     localStorage.setItem('font', selectedFont);
     localStorage.setItem('layout', selectedLayout);
-  }, [selectedPalette, selectedDesign, selectedFont, selectedLayout]);
-
-  const palettes = [
-    { value: 'palette-1', label: 'Professional Blue' },
-    { value: 'palette-2', label: 'Earthy Green' },
-    { value: 'palette-3', label: 'Elegant Purple' },
-    { value: 'palette-4', label: 'Bold Red' },
-    { value: 'palette-5', label: 'Cool Teal' },
-  ];
+    localStorage.setItem('customPaletteVars', JSON.stringify(paletteVars));
+  }, [selectedPalette, selectedDesign, selectedFont, selectedLayout, paletteVars]);
 
   const designs = [
     { value: 'design-1', label: 'Horizontal Bar' },
@@ -49,6 +79,7 @@ const WorkInProgress = () => {
     { value: 'design-3', label: 'Button Active' },
     { value: 'design-4', label: 'Gradient Background' },
     { value: 'design-5', label: 'Sticky Header' },
+    { value: 'design-6', label: 'Gradient + Sticky' },
   ];
 
   const fonts = [
@@ -79,6 +110,10 @@ const WorkInProgress = () => {
   ];
   // layout components now encapsulate any per-layout behavior (e.g. hero contrast)
 
+  const handleColorChange = (key, value) => {
+    setPaletteVars(prev => ({ ...prev, [key]: value }));
+  };
+
   return (
     <div className="page-content">
       <div className="wip-container">
@@ -87,15 +122,19 @@ const WorkInProgress = () => {
           <div className="top-selectors">
             <div className="palette-selector">
               <h2>Color Palette</h2>
-              {palettes.map(palette => (
-                <button
-                  key={palette.value}
-                  className={`palette-btn ${selectedPalette === palette.value ? 'active' : ''}`}
-                  onClick={() => setSelectedPalette(palette.value)}
-                >
-                  {palette.label}
-                </button>
-              ))}
+              <div className="color-picker-grid">
+                {colorFields.map(field => (
+                  <label key={field.key} className="color-picker-row">
+                    <span>{field.label}</span>
+                    <input
+                      type="color"
+                      value={paletteVars[field.key]}
+                      onChange={(event) => handleColorChange(field.key, event.target.value)}
+                    />
+                    <code>{paletteVars[field.key]}</code>
+                  </label>
+                ))}
+              </div>
             </div>
             <div className="design-selector">
               <h2>Design Style</h2>

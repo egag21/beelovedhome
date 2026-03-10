@@ -17,6 +17,18 @@ function App() {
     const font = localStorage.getItem('font') || 'font-2';
     const layout = localStorage.getItem('layout') || '';
     document.documentElement.className = `${palette} ${design} ${font} ${layout}`.trim();
+
+    const storedPaletteVars = localStorage.getItem('customPaletteVars');
+    if (storedPaletteVars) {
+      try {
+        const vars = JSON.parse(storedPaletteVars);
+        Object.entries(vars).forEach(([name, value]) => {
+          document.documentElement.style.setProperty(name, value);
+        });
+      } catch {
+        // ignore invalid stored palette vars
+      }
+    }
   }, []);
 
   return (
