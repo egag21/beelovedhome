@@ -14,7 +14,7 @@
   box-shadow: none;
 }
 
-.services-page__section h2 {
+.services-page__section h2:not(.heading-layout__title) {
   margin: 0 0 0.65rem 0;
 }
 

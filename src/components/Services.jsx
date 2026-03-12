@@ -2,6 +2,10 @@ import React, { useState } from 'react';
 import './Services.css';
 import './WorkInProgress.css';
 import HeroBanner from './layouts/HeroBanner';
+import HeadingSection from './layouts/HeadingSection';
+import HeadingSubsection from './layouts/HeadingSubsection';
+import HeadingDetail from './layouts/HeadingDetail';
+import HeadingMicro from './layouts/HeadingMicro';
 
 const faqs = [
   {
@@ -48,17 +52,36 @@ const Services = () => {
       </section>
 
       <section className="services-page__section sample-text layout-1">
-        <div className="centered-preview">
-          <h2 style={headerStyle}>Clarity, Confidence, and Consistent Inquiries</h2>
-          <p style={bodyStyle}>
-            Your website should make it obvious what you do, who you help, and why clients should trust you.
-            My consulting process turns scattered ideas into a focused online presence that supports growth.
-          </p>
-        </div>
+        <HeadingSection
+          headerStyle={headerStyle}
+          bodyStyle={bodyStyle}
+          eyebrow="Service Overview"
+          title="Clarity, Confidence, and Consistent Inquiries"
+          lead="Your website should make it obvious what you do, who you help, and why clients should trust you. My consulting process turns scattered ideas into a focused online presence that supports growth."
+          beforeContext={null}
+          afterContext="From here, we break down your current friction points and target outcomes."
+        />
       </section>
 
       <section className="services-page__section sample-text layout-2">
-        <h2 style={headerStyle}>How We Improve Your Online Presence</h2>
+        <HeadingSubsection
+          headerStyle={headerStyle}
+          bodyStyle={bodyStyle}
+          eyebrow="Optimization Focus"
+          title="How We Improve Your Online Presence"
+          lead="Each engagement starts by mapping current friction against measurable business goals."
+          beforeContext={null}
+          afterContext={null}
+        />
+        <HeadingDetail
+          headerStyle={headerStyle}
+          bodyStyle={bodyStyle}
+          eyebrow="Diagnostic Categories"
+          title="Where We Usually Find Friction First"
+          lead="These two lenses quickly identify whether your messaging problem is strategic, structural, or both."
+          beforeContext={null}
+          afterContext={null}
+        />
         <div className="split-columns">
           <div className="split-columns__panel">
             <h4 style={headerStyle}>Current Challenges</h4>
@@ -206,7 +229,24 @@ const Services = () => {
       </section>
 
       <section className="services-page__section sample-text layout-13">
-        <h2 style={headerStyle}>Frequently Asked Questions</h2>
+        <HeadingSubsection
+          headerStyle={headerStyle}
+          bodyStyle={bodyStyle}
+          eyebrow="Decision Support"
+          title="Frequently Asked Questions"
+          lead="These are the most common questions teams ask before starting."
+          beforeContext={null}
+          afterContext={null}
+        />
+        <HeadingMicro
+          headerStyle={headerStyle}
+          bodyStyle={bodyStyle}
+          eyebrow="Before You Reach Out"
+          title="These Answers Cover Typical Pre-Engagement Questions"
+          lead="If your question is not listed, include it in your first message and I will address it directly."
+          beforeContext={null}
+          afterContext={null}
+        />
         <div className="faq-accordion__items">
           {faqs.map((item, index) => {
             const isOpen = openFaq === index;

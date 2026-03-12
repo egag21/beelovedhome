@@ -16,6 +16,11 @@ import FaqAccordion from './layouts/FaqAccordion';
 import ImageSingle from './layouts/ImageSingle';
 import ImageTwoUp from './layouts/ImageTwoUp';
 import ImageGridFour from './layouts/ImageGridFour';
+import HeadingDisplay from './layouts/HeadingDisplay';
+import HeadingSection from './layouts/HeadingSection';
+import HeadingSubsection from './layouts/HeadingSubsection';
+import HeadingDetail from './layouts/HeadingDetail';
+import HeadingMicro from './layouts/HeadingMicro';
 
 const colorFields = [
   { key: '--primary-color', label: 'Primary' },
@@ -28,6 +33,12 @@ const colorFields = [
   { key: '--body-text', label: 'Body Text' },
   { key: '--neutral-gray', label: 'Neutral Gray' },
   { key: '--sidebar-gray', label: 'Sidebar Gray' },
+  { key: '--heading-display-color', label: 'Heading Display' },
+  { key: '--heading-section-color', label: 'Heading Section' },
+  { key: '--heading-subsection-color', label: 'Heading Subsection' },
+  { key: '--heading-detail-color', label: 'Heading Detail' },
+  { key: '--heading-micro-color', label: 'Heading Micro' },
+  { key: '--heading-support-color', label: 'Heading Support' },
 ];
 
 const normalizeToHex = (value) => {
@@ -121,6 +132,11 @@ const WorkInProgress = () => {
     { value: 'layout-15', label: 'Single Image' },
     { value: 'layout-16', label: 'Two Images' },
     { value: 'layout-17', label: 'Image Grid (4)' },
+    { value: 'layout-18', label: 'Heading Block H1' },
+    { value: 'layout-19', label: 'Heading Block H2' },
+    { value: 'layout-20', label: 'Heading Block H3' },
+    { value: 'layout-21', label: 'Heading Block H4' },
+    { value: 'layout-22', label: 'Heading Block H5' },
   ];
   // layout components now encapsulate any per-layout behavior (e.g. hero contrast)
 
@@ -157,11 +173,29 @@ const WorkInProgress = () => {
   return (
     <div className="page-content">
       <div className="wip-container">
-        <h1>Work in Progress - Theme Selector</h1>
+        <HeadingDisplay
+          headerStyle={{ fontFamily: 'var(--header-font, inherit)' }}
+          bodyStyle={{ fontFamily: 'var(--body-font, inherit)' }}
+          className="wip-page-heading"
+          eyebrow="WIP Control Center"
+          title="Work in Progress - Theme Selector"
+          lead="Tune colors, layout patterns, and typography in one place. Changes apply immediately and persist in local storage."
+          beforeContext={null}
+          afterContext={null}
+        />
         <div className="selector">
           <div className="top-selectors">
             <div className="palette-selector">
-              <h2>Color Palette</h2>
+              <HeadingDetail
+                headerStyle={{ fontFamily: 'var(--header-font, inherit)' }}
+                bodyStyle={{ fontFamily: 'var(--body-font, inherit)' }}
+                className="wip-inline-heading"
+                eyebrow={null}
+                title="Color Palette"
+                lead={null}
+                beforeContext={null}
+                afterContext={null}
+              />
               <div className="color-picker-grid">
                 {colorFields.map(field => (
                   <label key={field.key} className="color-picker-row">
@@ -180,7 +214,16 @@ const WorkInProgress = () => {
               </button>
             </div>
             <div className="design-selector">
-              <h2>Design Style</h2>
+              <HeadingMicro
+                headerStyle={{ fontFamily: 'var(--header-font, inherit)' }}
+                bodyStyle={{ fontFamily: 'var(--body-font, inherit)' }}
+                className="wip-inline-heading"
+                eyebrow={null}
+                title="Design Style"
+                lead={null}
+                beforeContext={null}
+                afterContext={null}
+              />
               {designs.map(design => (
                 <button
                   key={design.value}
@@ -192,7 +235,16 @@ const WorkInProgress = () => {
               ))}
             </div>
             <div className="font-selector">
-              <h2>Font Options</h2>
+              <HeadingMicro
+                headerStyle={{ fontFamily: 'var(--header-font, inherit)' }}
+                bodyStyle={{ fontFamily: 'var(--body-font, inherit)' }}
+                className="wip-inline-heading"
+                eyebrow={null}
+                title="Font Options"
+                lead={null}
+                beforeContext={null}
+                afterContext={null}
+              />
               {fonts.map(font => (
                 <button
                   key={font.value}
@@ -242,6 +294,16 @@ const WorkInProgress = () => {
                   return <ImageTwoUp headerStyle={headerStyle} bodyStyle={bodyStyle} />;
                 case 'layout-17':
                   return <ImageGridFour headerStyle={headerStyle} bodyStyle={bodyStyle} />;
+                case 'layout-18':
+                  return <HeadingDisplay headerStyle={headerStyle} bodyStyle={bodyStyle} />;
+                case 'layout-19':
+                  return <HeadingSection headerStyle={headerStyle} bodyStyle={bodyStyle} />;
+                case 'layout-20':
+                  return <HeadingSubsection headerStyle={headerStyle} bodyStyle={bodyStyle} />;
+                case 'layout-21':
+                  return <HeadingDetail headerStyle={headerStyle} bodyStyle={bodyStyle} />;
+                case 'layout-22':
+                  return <HeadingMicro headerStyle={headerStyle} bodyStyle={bodyStyle} />;
                 default:
                   return <StandardCentered headerStyle={headerStyle} bodyStyle={bodyStyle} />;
               }
@@ -249,7 +311,16 @@ const WorkInProgress = () => {
           </div>
 
           <div className="layout-selector">
-            <h2>Layout Options</h2>
+            <HeadingDetail
+              headerStyle={{ fontFamily: 'var(--header-font, inherit)' }}
+              bodyStyle={{ fontFamily: 'var(--body-font, inherit)' }}
+              className="wip-inline-heading wip-inline-heading--layout"
+              eyebrow={null}
+              title="Layout Options"
+              lead={null}
+              beforeContext={null}
+              afterContext={null}
+            />
             {layouts.map(layout => (
               <button
                 key={layout.value}
