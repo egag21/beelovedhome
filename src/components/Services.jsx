@@ -38,7 +38,7 @@ const Services = () => {
 
   return (
     <div className="page-content services-page">
-      <section className="services-page__hero sample-text layout-9">
+      <section className="services-page__hero sample-text LO-09-HeroBnnr">
         <HeroBanner
           headerStyle={headerStyle}
           bodyStyle={bodyStyle}
@@ -51,11 +51,10 @@ const Services = () => {
         />
       </section>
 
-      <section className="services-page__section sample-text layout-1">
+      <section className="services-page__section sample-text LO-01-StndCnt">
         <HeadingSection
           headerStyle={headerStyle}
           bodyStyle={bodyStyle}
-          eyebrow="Service Overview"
           title="Clarity, Confidence, and Consistent Inquiries"
           lead="Your website should make it obvious what you do, who you help, and why clients should trust you. My consulting process turns scattered ideas into a focused online presence that supports growth."
           beforeContext={null}
@@ -63,11 +62,10 @@ const Services = () => {
         />
       </section>
 
-      <section className="services-page__section sample-text layout-2">
+      <section className="services-page__section sample-text LO-02-SpltClmn">
         <HeadingSubsection
           headerStyle={headerStyle}
           bodyStyle={bodyStyle}
-          eyebrow="Optimization Focus"
           title="How We Improve Your Online Presence"
           lead="Each engagement starts by mapping current friction against measurable business goals."
           beforeContext={null}
@@ -76,7 +74,6 @@ const Services = () => {
         <HeadingDetail
           headerStyle={headerStyle}
           bodyStyle={bodyStyle}
-          eyebrow="Diagnostic Categories"
           title="Where We Usually Find Friction First"
           lead="These two lenses quickly identify whether your messaging problem is strategic, structural, or both."
           beforeContext={null}
@@ -102,7 +99,7 @@ const Services = () => {
         </div>
       </section>
 
-      <section className="services-page__section sample-text layout-4">
+      <section className="services-page__section sample-text LO-04-CrdsGrid">
         <div className="cards-grid">
           <h2 style={headerStyle}>Ways We Can Work Together</h2>
           <div className="cards-grid__items">
@@ -126,7 +123,7 @@ const Services = () => {
         </div>
       </section>
 
-      <section className="services-page__section sample-text layout-12">
+      <section className="services-page__section sample-text LO-12-Stndrd">
         <h2 style={headerStyle}>What You Receive</h2>
         <ul className="feature-list" style={bodyStyle}>
           <li><strong>Strategic Positioning</strong> tailored to your highest-value audience</li>
@@ -136,7 +133,7 @@ const Services = () => {
         </ul>
       </section>
 
-      <section className="services-page__section sample-text layout-5">
+      <section className="services-page__section sample-text LO-05-SdbrLeft">
         <div className="sidebar-layout">
           <aside className="sidebar" style={bodyStyle}>
             <h4 style={headerStyle}>Focus Areas</h4>
@@ -157,7 +154,7 @@ const Services = () => {
         </div>
       </section>
 
-      <section className="services-page__section sample-text layout-6">
+      <section className="services-page__section sample-text LO-06-SdbrRght">
         <div className="sidebar-layout">
           <div className="main">
             <h2 style={headerStyle}>Execution-Friendly by Design</h2>
@@ -178,7 +175,7 @@ const Services = () => {
         </div>
       </section>
 
-      <section className="services-page__section sample-text layout-8">
+      <section className="services-page__section sample-text LO-08-ThrColTb">
         <h2 style={headerStyle}>Project Flow</h2>
         <div className="table-scroll table-scroll--wide">
           <table className="sample-table three-col" style={bodyStyle}>
@@ -194,7 +191,7 @@ const Services = () => {
         </div>
       </section>
 
-      <section className="services-page__section sample-text layout-7">
+      <section className="services-page__section sample-text LO-07-TwoColTb">
         <h2 style={headerStyle}>Investment Snapshot</h2>
         <div className="table-scroll">
           <table className="sample-table" style={bodyStyle}>
@@ -210,7 +207,7 @@ const Services = () => {
         </div>
       </section>
 
-      <section className="services-page__section sample-text layout-10">
+      <section className="services-page__section sample-text LO-10-TstmCrd">
         <h2 style={headerStyle}>What Clients Say</h2>
         <div className="testimonial-grid" style={bodyStyle}>
           <article className="card">
@@ -228,11 +225,10 @@ const Services = () => {
         </div>
       </section>
 
-      <section className="services-page__section sample-text layout-13">
+      <section className="services-page__section sample-text LO-13-FaqAccrd">
         <HeadingSubsection
           headerStyle={headerStyle}
           bodyStyle={bodyStyle}
-          eyebrow="Decision Support"
           title="Frequently Asked Questions"
           lead="These are the most common questions teams ask before starting."
           beforeContext={null}
@@ -241,7 +237,6 @@ const Services = () => {
         <HeadingMicro
           headerStyle={headerStyle}
           bodyStyle={bodyStyle}
-          eyebrow="Before You Reach Out"
           title="These Answers Cover Typical Pre-Engagement Questions"
           lead="If your question is not listed, include it in your first message and I will address it directly."
           beforeContext={null}

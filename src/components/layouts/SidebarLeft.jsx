@@ -1,4 +1,5 @@
 import React from 'react';
+import LayoutOptionHeading from './LayoutOptionHeading';
 
 export default function SidebarLeft({ headerStyle, bodyStyle }) {
   return (
@@ -13,10 +14,12 @@ export default function SidebarLeft({ headerStyle, bodyStyle }) {
         </ul>
       </aside>
       <div className="main">
-        <h3 style={headerStyle}>Use Left Sidebar for Site Navigation + Context</h3>
-        <p className="sample-intro" style={bodyStyle}>
-          This pattern works well on longer pages where readers need persistent wayfinding.
-        </p>
+        <LayoutOptionHeading
+          headerStyle={headerStyle}
+          bodyStyle={bodyStyle}
+          title="Use Left Sidebar for Site Navigation + Context"
+          intro="This pattern works well on longer pages where readers need persistent wayfinding."
+        />
         <p style={bodyStyle}>
           Keep supporting navigation in the sidebar and reserve the main column for persuasive copy, outcomes,
           and proof points.

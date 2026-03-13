@@ -13,7 +13,7 @@ const Home = () => {
 
   return (
     <div className="page-content">
-      <section className="sample-text layout-9">
+      <section className="sample-text LO-09-HeroBnnr">
         <HeroBanner
           headerStyle={headerStyle}
           bodyStyle={bodyStyle}
@@ -26,11 +26,10 @@ const Home = () => {
         />
       </section>
 
-      <section className="sample-text layout-19" style={{ marginTop: '1rem' }}>
+      <section className="sample-text LO-19-HdngH2" style={{ marginTop: '1rem' }}>
         <HeadingSection
           headerStyle={headerStyle}
           bodyStyle={bodyStyle}
-          eyebrow="Core Promise"
           title="Practical Strategy for Sites That Need Better Leads"
           lead="Most websites underperform because the message, page structure, and next-step path are out of sync. I align all three so qualified prospects know exactly why to contact you."
           beforeContext={null}
@@ -38,15 +37,14 @@ const Home = () => {
         />
       </section>
 
-      <section className="sample-text layout-12" style={{ marginTop: '1rem' }}>
+      <section className="sample-text LO-12-Stndrd" style={{ marginTop: '1rem' }}>
         <Standard headerStyle={headerStyle} bodyStyle={bodyStyle} />
       </section>
 
-      <section className="sample-text layout-20" style={{ marginTop: '1rem' }}>
+      <section className="sample-text LO-20-HdngH3" style={{ marginTop: '1rem' }}>
         <HeadingSubsection
           headerStyle={headerStyle}
           bodyStyle={bodyStyle}
-          eyebrow="What To Expect"
           title="Engagements Are Structured for Fast Momentum"
           lead="You receive clear priorities, documented decisions, and implementation-ready guidance so your team can execute without guesswork."
           beforeContext={null}
@@ -54,11 +52,10 @@ const Home = () => {
         />
       </section>
 
-      <section className="sample-text layout-21" style={{ marginTop: '1rem' }}>
+      <section className="sample-text LO-21-HdngH4" style={{ marginTop: '1rem' }}>
         <HeadingDetail
           headerStyle={headerStyle}
           bodyStyle={bodyStyle}
-          eyebrow="Implementation Detail"
           title="Priority Order Matters More Than Volume"
           lead="Most teams improve outcomes fastest by fixing homepage message clarity, service-page flow, and CTA intent in sequence."
           beforeContext={null}
@@ -66,11 +63,10 @@ const Home = () => {
         />
       </section>
 
-      <section className="sample-text layout-22" style={{ marginTop: '1rem' }}>
+      <section className="sample-text LO-22-HdngH5" style={{ marginTop: '1rem' }}>
         <HeadingMicro
           headerStyle={headerStyle}
           bodyStyle={bodyStyle}
-          eyebrow="Quick Note"
           title="Measure Lead Quality, Not Just Form Volume"
           lead="Better positioning usually reduces low-fit inquiries while improving close-ready conversations."
           beforeContext={null}

@@ -1,12 +1,15 @@
 import React from 'react';
+import LayoutOptionHeading from './LayoutOptionHeading';
 
 export default function TestimonialCards({ headerStyle, bodyStyle }) {
   return (
     <section>
-      <h3 style={headerStyle}>Client Outcomes</h3>
-      <p className="sample-intro" style={bodyStyle}>
-        Use testimonial cards to validate your claims with short, concrete wins.
-      </p>
+      <LayoutOptionHeading
+        headerStyle={headerStyle}
+        bodyStyle={bodyStyle}
+        title="Client Outcomes"
+        intro="Use testimonial cards to validate your claims with short, concrete wins."
+      />
       <div className="testimonial-grid" style={bodyStyle}>
         <article className="card">
           <strong>"Our inquiries doubled in 60 days."</strong>

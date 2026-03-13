@@ -21,6 +21,7 @@ import HeadingSection from './layouts/HeadingSection';
 import HeadingSubsection from './layouts/HeadingSubsection';
 import HeadingDetail from './layouts/HeadingDetail';
 import HeadingMicro from './layouts/HeadingMicro';
+import CatalogCard from './layouts/CatalogCard';
 
 const colorFields = [
   { key: '--primary-color', label: 'Primary' },
@@ -82,7 +83,7 @@ const WorkInProgress = () => {
   const [selectedFont, setSelectedFont] = useState(localStorage.getItem('font') || 'font-2');
   const [selectedLayout, setSelectedLayout] = useState(() => {
     const storedLayout = localStorage.getItem('layout');
-    return storedLayout === 'layout-3' ? 'layout-9' : storedLayout || 'layout-5';
+    return /^LO-\d{2}-[A-Za-z0-9]+$/.test(storedLayout || '') ? storedLayout : 'LO-05-SdbrLeft';
   });
   const [paletteVars, setPaletteVars] = useState(() => getThemeDefaultPaletteVars());
   const [copyLabel, setCopyLabel] = useState('Copy Palette');
@@ -116,27 +117,28 @@ const WorkInProgress = () => {
   ];
 
   const layouts = [
-    { value: 'layout-1', label: 'Standard Centered' },
-    { value: 'layout-12', label: 'Standard' },
-    { value: 'layout-2', label: 'Split Columns' },
-    { value: 'layout-4', label: 'Cards Grid' },
-    { value: 'layout-5', label: 'Sidebar Left' },
-    { value: 'layout-6', label: 'Sidebar Right' },
-    { value: 'layout-7', label: 'Two-Column Table' },
-    { value: 'layout-8', label: 'Three-Column Table' },
-    { value: 'layout-9', label: 'Hero Banner' },
-    { value: 'layout-14', label: 'Hero Full-Width' },
-    { value: 'layout-10', label: 'Testimonial Cards' },
-    { value: 'layout-11', label: 'Feature List' },
-    { value: 'layout-13', label: 'FAQ Accordion' },
-    { value: 'layout-15', label: 'Single Image' },
-    { value: 'layout-16', label: 'Two Images' },
-    { value: 'layout-17', label: 'Image Grid (4)' },
-    { value: 'layout-18', label: 'Heading Block H1' },
-    { value: 'layout-19', label: 'Heading Block H2' },
-    { value: 'layout-20', label: 'Heading Block H3' },
-    { value: 'layout-21', label: 'Heading Block H4' },
-    { value: 'layout-22', label: 'Heading Block H5' },
+    { value: 'LO-01-StndCnt', label: 'Standard Centered' },
+    { value: 'LO-12-Stndrd', label: 'Standard' },
+    { value: 'LO-02-SpltClmn', label: 'Split Columns' },
+    { value: 'LO-04-CrdsGrid', label: 'Cards Grid' },
+    { value: 'LO-05-SdbrLeft', label: 'Sidebar Left' },
+    { value: 'LO-06-SdbrRght', label: 'Sidebar Right' },
+    { value: 'LO-07-TwoColTb', label: 'Two-Column Table' },
+    { value: 'LO-08-ThrColTb', label: 'Three-Column Table' },
+    { value: 'LO-09-HeroBnnr', label: 'Hero Banner' },
+    { value: 'LO-14-HrFllWdt', label: 'Hero Full-Width' },
+    { value: 'LO-10-TstmCrd', label: 'Testimonial Cards' },
+    { value: 'LO-11-FtrList', label: 'Feature List' },
+    { value: 'LO-13-FaqAccrd', label: 'FAQ Accordion' },
+    { value: 'LO-15-SnglImg', label: 'Single Image' },
+    { value: 'LO-16-TwoImgs', label: 'Two Images' },
+    { value: 'LO-17-ImgGrd4', label: 'Image Grid (4)' },
+    { value: 'LO-18-HdngH1', label: 'Heading Block H1' },
+    { value: 'LO-19-HdngH2', label: 'Heading Block H2' },
+    { value: 'LO-20-HdngH3', label: 'Heading Block H3' },
+    { value: 'LO-21-HdngH4', label: 'Heading Block H4' },
+    { value: 'LO-22-HdngH5', label: 'Heading Block H5' },
+    { value: 'LO-23-CtlgCard', label: 'Catalog Card' },
   ];
   // layout components now encapsulate any per-layout behavior (e.g. hero contrast)
 
@@ -177,7 +179,6 @@ const WorkInProgress = () => {
           headerStyle={{ fontFamily: 'var(--header-font, inherit)' }}
           bodyStyle={{ fontFamily: 'var(--body-font, inherit)' }}
           className="wip-page-heading"
-          eyebrow="WIP Control Center"
           title="Work in Progress - Theme Selector"
           lead="Tune colors, layout patterns, and typography in one place. Changes apply immediately and persist in local storage."
           beforeContext={null}
@@ -190,7 +191,6 @@ const WorkInProgress = () => {
                 headerStyle={{ fontFamily: 'var(--header-font, inherit)' }}
                 bodyStyle={{ fontFamily: 'var(--body-font, inherit)' }}
                 className="wip-inline-heading"
-                eyebrow={null}
                 title="Color Palette"
                 lead={null}
                 beforeContext={null}
@@ -218,7 +218,6 @@ const WorkInProgress = () => {
                 headerStyle={{ fontFamily: 'var(--header-font, inherit)' }}
                 bodyStyle={{ fontFamily: 'var(--body-font, inherit)' }}
                 className="wip-inline-heading"
-                eyebrow={null}
                 title="Design Style"
                 lead={null}
                 beforeContext={null}
@@ -239,7 +238,6 @@ const WorkInProgress = () => {
                 headerStyle={{ fontFamily: 'var(--header-font, inherit)' }}
                 bodyStyle={{ fontFamily: 'var(--body-font, inherit)' }}
                 className="wip-inline-heading"
-                eyebrow={null}
                 title="Font Options"
                 lead={null}
                 beforeContext={null}
@@ -262,48 +260,50 @@ const WorkInProgress = () => {
               const bodyStyle = { fontFamily: fonts.find(f => f.value === selectedFont).body };
 
               switch (selectedLayout) {
-                case 'layout-1':
+                case 'LO-01-StndCnt':
                   return <StandardCentered headerStyle={headerStyle} bodyStyle={bodyStyle} />;
-                case 'layout-2':
+                case 'LO-02-SpltClmn':
                   return <SplitColumns headerStyle={headerStyle} bodyStyle={bodyStyle} />;
-                case 'layout-12':
+                case 'LO-12-Stndrd':
                   return <Standard headerStyle={headerStyle} bodyStyle={bodyStyle} />;
-                case 'layout-4':
+                case 'LO-04-CrdsGrid':
                   return <CardsGrid headerStyle={headerStyle} bodyStyle={bodyStyle} />;
-                case 'layout-5':
+                case 'LO-05-SdbrLeft':
                   return <SidebarLeft headerStyle={headerStyle} bodyStyle={bodyStyle} />;
-                case 'layout-6':
+                case 'LO-06-SdbrRght':
                   return <SidebarRight headerStyle={headerStyle} bodyStyle={bodyStyle} />;
-                case 'layout-7':
+                case 'LO-07-TwoColTb':
                   return <TwoColumnTable headerStyle={headerStyle} bodyStyle={bodyStyle} />;
-                case 'layout-8':
+                case 'LO-08-ThrColTb':
                   return <ThreeColumnTable headerStyle={headerStyle} bodyStyle={bodyStyle} />;
-                case 'layout-9':
+                case 'LO-09-HeroBnnr':
                   return <HeroBanner headerStyle={headerStyle} bodyStyle={bodyStyle} ctaUrl="/contact" />;
-                case 'layout-14':
+                case 'LO-14-HrFllWdt':
                   return <HeroFullWidth headerStyle={headerStyle} bodyStyle={bodyStyle} ctaUrl="/contact" />;
-                case 'layout-10':
+                case 'LO-10-TstmCrd':
                   return <TestimonialCards headerStyle={headerStyle} bodyStyle={bodyStyle} />;
-                case 'layout-11':
+                case 'LO-11-FtrList':
                   return <FeatureList headerStyle={headerStyle} bodyStyle={bodyStyle} />;
-                case 'layout-13':
+                case 'LO-13-FaqAccrd':
                   return <FaqAccordion headerStyle={headerStyle} bodyStyle={bodyStyle} />;
-                case 'layout-15':
+                case 'LO-15-SnglImg':
                   return <ImageSingle headerStyle={headerStyle} bodyStyle={bodyStyle} />;
-                case 'layout-16':
+                case 'LO-16-TwoImgs':
                   return <ImageTwoUp headerStyle={headerStyle} bodyStyle={bodyStyle} />;
-                case 'layout-17':
+                case 'LO-17-ImgGrd4':
                   return <ImageGridFour headerStyle={headerStyle} bodyStyle={bodyStyle} />;
-                case 'layout-18':
+                case 'LO-18-HdngH1':
                   return <HeadingDisplay headerStyle={headerStyle} bodyStyle={bodyStyle} />;
-                case 'layout-19':
+                case 'LO-19-HdngH2':
                   return <HeadingSection headerStyle={headerStyle} bodyStyle={bodyStyle} />;
-                case 'layout-20':
+                case 'LO-20-HdngH3':
                   return <HeadingSubsection headerStyle={headerStyle} bodyStyle={bodyStyle} />;
-                case 'layout-21':
+                case 'LO-21-HdngH4':
                   return <HeadingDetail headerStyle={headerStyle} bodyStyle={bodyStyle} />;
-                case 'layout-22':
+                case 'LO-22-HdngH5':
                   return <HeadingMicro headerStyle={headerStyle} bodyStyle={bodyStyle} />;
+                case 'LO-23-CtlgCard':
+                  return <CatalogCard headerStyle={headerStyle} bodyStyle={bodyStyle} />;
                 default:
                   return <StandardCentered headerStyle={headerStyle} bodyStyle={bodyStyle} />;
               }
@@ -315,7 +315,6 @@ const WorkInProgress = () => {
               headerStyle={{ fontFamily: 'var(--header-font, inherit)' }}
               bodyStyle={{ fontFamily: 'var(--body-font, inherit)' }}
               className="wip-inline-heading wip-inline-heading--layout"
-              eyebrow={null}
               title="Layout Options"
               lead={null}
               beforeContext={null}

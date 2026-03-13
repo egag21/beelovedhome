@@ -4,14 +4,16 @@ export default function HeadingDisplay({
   headerStyle,
   bodyStyle,
   className = '',
-  eyebrow = 'Homepage Hero / First Impression',
+  eyebrow = null,
   title = 'Strategic Website Consulting That Moves Clients to Action',
   lead = 'This H1-style block is designed for page-open context with enough presence and breathing room to anchor the rest of your section stack.',
   beforeContext = 'Typical content before: top navigation or a compact trust ribbon.',
   afterContext = 'Typical content after: hero body copy, CTA row, or a two-column value proposition.',
 }) {
+  const isTitleOnly = !lead;
+
   return (
-    <section className={`heading-layout heading-layout--display ${className}`.trim()}>
+    <section className={`heading-layout heading-layout--display ${isTitleOnly ? 'heading-layout--title-only' : ''} ${className}`.trim()}>
       {eyebrow && <p className="heading-layout__eyebrow" style={bodyStyle}>{eyebrow}</p>}
       {title && <h1 className="heading-layout__title" style={headerStyle}>{title}</h1>}
       {lead && <p className="heading-layout__lead" style={bodyStyle}>{lead}</p>}

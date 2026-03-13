@@ -1,5 +1,6 @@
 import React from 'react';
 import ImageTile from './ImageTile';
+import LayoutOptionHeading from './LayoutOptionHeading';
 
 const defaultItems = [
   {
@@ -18,10 +19,12 @@ const defaultItems = [
 export default function ImageTwoUp({ headerStyle, bodyStyle, items = defaultItems }) {
   return (
     <section className="image-layout image-layout--two-up">
-      <h3 style={headerStyle}>Two Image Comparison</h3>
-      <p className="sample-intro" style={bodyStyle}>
-        Great for showing before/after states, paired capabilities, or two related proof points.
-      </p>
+      <LayoutOptionHeading
+        headerStyle={headerStyle}
+        bodyStyle={bodyStyle}
+        title="Two Image Comparison"
+        intro="Great for showing before/after states, paired capabilities, or two related proof points."
+      />
       <div className="image-grid image-grid--two">
         {items.slice(0, 2).map((item) => (
           <ImageTile key={item.src} item={item} />

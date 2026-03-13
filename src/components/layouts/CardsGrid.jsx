@@ -1,12 +1,15 @@
 import React from 'react';
+import LayoutOptionHeading from './LayoutOptionHeading';
 
 export default function CardsGrid({ headerStyle, bodyStyle }) {
   return (
     <section className="cards-grid">
-      <h3 style={headerStyle}>Consulting Service Packages</h3>
-      <p className="cards-grid__intro" style={bodyStyle}>
-        Use cards to present offers with clear scope, timelines, and outcomes so visitors can choose a starting point quickly.
-      </p>
+      <LayoutOptionHeading
+        headerStyle={headerStyle}
+        bodyStyle={bodyStyle}
+        title="Consulting Service Packages"
+        intro="Use cards to present offers with clear scope, timelines, and outcomes so visitors can choose a starting point quickly."
+      />
 
       <div className="cards-grid__items">
         <article className="cards-grid__card">

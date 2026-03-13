@@ -21,6 +21,7 @@ import HeadingSection from './layouts/HeadingSection';
 import HeadingSubsection from './layouts/HeadingSubsection';
 import HeadingDetail from './layouts/HeadingDetail';
 import HeadingMicro from './layouts/HeadingMicro';
+import CatalogCard from './layouts/CatalogCard';
 
 const AboutJeff = () => {
   const headerStyle = { fontFamily: 'var(--header-font, inherit)' };
@@ -28,163 +29,169 @@ const AboutJeff = () => {
 
   const catalog = [
     {
-      id: 'layout-1',
-      name: 'Standard Centered',
-      useWhen: 'You need a concise mission or value statement with a balanced visual center.',
-      how: 'Keep copy to 2-4 short paragraphs and use this near the top of a page.',
+      id: 'LO-23-CtlgCard',
+      pattern: 'Catalog Card',
+      fit: 'Section-level context framing before a layout preview.',
+      notes: 'Ideal when readers need orientation before scanning a visual block.',
+      preview: <CatalogCard headerStyle={headerStyle} bodyStyle={bodyStyle} />,
+    },
+    {
+      id: 'LO-01-StndCnt',
+      pattern: 'Standard Centered',
+      fit: 'Concise mission or value statements with a balanced visual center.',
+      notes: 'Works best with 2-4 short paragraphs near the top of a page.',
       preview: <StandardCentered headerStyle={headerStyle} bodyStyle={bodyStyle} />,
     },
     {
-      id: 'layout-12',
-      name: 'Standard',
-      useWhen: 'You want straightforward left-aligned narrative content.',
-      how: 'Use for body sections where clarity and readability matter most.',
+      id: 'LO-12-Stndrd',
+      pattern: 'Standard',
+      fit: 'Straightforward left-aligned narrative content.',
+      notes: 'Ideal for body sections where clarity and readability lead.',
       preview: <Standard headerStyle={headerStyle} bodyStyle={bodyStyle} />,
     },
     {
-      id: 'layout-2',
-      name: 'Split Columns',
-      useWhen: 'You need side-by-side comparison: problem vs outcome, before vs after, option A vs B.',
-      how: 'Keep each column parallel in structure so scanning is easy.',
+      id: 'LO-02-SpltClmn',
+      pattern: 'Split Columns',
+      fit: 'Side-by-side comparisons: problem/outcome, before/after, option A/B.',
+      notes: 'Keep columns parallel in structure for easy scanning.',
       preview: <SplitColumns headerStyle={headerStyle} bodyStyle={bodyStyle} />,
     },
     {
-      id: 'layout-4',
-      name: 'Cards Grid',
-      useWhen: 'You need modular chunks like services, packages, or features.',
-      how: 'Use 2-4 cards with one clear idea per card and optional badges.',
+      id: 'LO-04-CrdsGrid',
+      pattern: 'Cards Grid',
+      fit: 'Modular chunks such as services, packages, or features.',
+      notes: 'Use 2-4 cards with one clear idea per card.',
       preview: <CardsGrid headerStyle={headerStyle} bodyStyle={bodyStyle} />,
     },
     {
-      id: 'layout-5',
-      name: 'Sidebar Left',
-      useWhen: 'Primary narrative plus persistent supporting links or notes.',
-      how: 'Put navigation or reference items in the left sidebar and core argument on the right.',
+      id: 'LO-05-SdbrLeft',
+      pattern: 'Sidebar Left',
+      fit: 'Primary narrative plus persistent supporting links or notes.',
+      notes: 'Place navigation/reference in the left sidebar and core argument on the right.',
       preview: <SidebarLeft headerStyle={headerStyle} bodyStyle={bodyStyle} />,
     },
     {
-      id: 'layout-6',
-      name: 'Sidebar Right',
-      useWhen: 'You want the narrative to appear first and reference content second.',
-      how: 'Use right sidebar for proof points, quick stats, or links.',
+      id: 'LO-06-SdbrRght',
+      pattern: 'Sidebar Right',
+      fit: 'Narrative-first flow with supporting reference content second.',
+      notes: 'Use right sidebar for proof points, quick stats, or links.',
       preview: <SidebarRight headerStyle={headerStyle} bodyStyle={bodyStyle} />,
     },
     {
-      id: 'layout-7',
-      name: 'Two-Column Table',
-      useWhen: 'You need simple side-by-side tabular data (e.g., offer and price).',
-      how: 'Keep labels short and use for quick scan decisions.',
+      id: 'LO-07-TwoColTb',
+      pattern: 'Two-Column Table',
+      fit: 'Simple side-by-side tabular data such as offer vs price.',
+      notes: 'Keep labels short for quick-scan decisions.',
       preview: <TwoColumnTable headerStyle={headerStyle} bodyStyle={bodyStyle} />,
     },
     {
-      id: 'layout-8',
-      name: 'Three-Column Table',
-      useWhen: 'You need process/status comparisons with one extra dimension.',
-      how: 'Use consistent column meaning across rows (Phase, Goal, Output style).',
+      id: 'LO-08-ThrColTb',
+      pattern: 'Three-Column Table',
+      fit: 'Process/status comparisons with one extra dimension.',
+      notes: 'Keep column meaning consistent across rows.',
       preview: <ThreeColumnTable headerStyle={headerStyle} bodyStyle={bodyStyle} />,
     },
     {
-      id: 'layout-9',
-      name: 'Hero Banner',
-      useWhen: 'You need a high-impact page opener with headline, body, and CTA.',
-      how: 'Use strong image contrast and keep body copy to one compact statement.',
+      id: 'LO-09-HeroBnnr',
+      pattern: 'Hero Banner',
+      fit: 'High-impact page openers with headline, body, and CTA.',
+      notes: 'Use strong image contrast and compact body copy.',
       preview: <HeroBanner headerStyle={headerStyle} bodyStyle={bodyStyle} ctaUrl="/contact" />,
     },
     {
-      id: 'layout-14',
-      name: 'Hero Full-Width',
-      useWhen: 'You want a cinematic full-bleed first impression.',
-      how: 'Reserve for top-of-page emphasis; avoid stacking multiple full-width heroes.',
+      id: 'LO-14-HrFllWdt',
+      pattern: 'Hero Full-Width',
+      fit: 'Cinematic full-bleed first impressions.',
+      notes: 'Reserve for top-of-page emphasis; avoid stacking multiples.',
       preview: <HeroFullWidth headerStyle={headerStyle} bodyStyle={bodyStyle} ctaUrl="/contact" />,
     },
     {
-      id: 'layout-10',
-      name: 'Testimonial Cards',
-      useWhen: 'You need social proof from clients in a skimmable format.',
-      how: 'Use short quote + attribution; 3 cards is often enough.',
+      id: 'LO-10-TstmCrd',
+      pattern: 'Testimonial Cards',
+      fit: 'Social proof in a skimmable format.',
+      notes: 'Use short quote + attribution; three cards is usually enough.',
       preview: <TestimonialCards headerStyle={headerStyle} bodyStyle={bodyStyle} />,
     },
     {
-      id: 'layout-11',
-      name: 'Feature List',
-      useWhen: 'You need a compact list of deliverables or benefits.',
-      how: 'Lead each bullet with a bold noun phrase and keep each line outcome-focused.',
+      id: 'LO-11-FtrList',
+      pattern: 'Feature List',
+      fit: 'Compact lists of deliverables or benefits.',
+      notes: 'Lead bullets with bold noun phrases and outcome-focused lines.',
       preview: <FeatureList headerStyle={headerStyle} bodyStyle={bodyStyle} />,
     },
     {
-      id: 'layout-13',
-      name: 'FAQ Accordion',
-      useWhen: 'You need to reduce objections without dumping all text at once.',
-      how: 'Use direct questions and concise answers; prioritize decision-blocking questions first.',
+      id: 'LO-13-FaqAccrd',
+      pattern: 'FAQ Accordion',
+      fit: 'Objection handling without showing all text at once.',
+      notes: 'Use direct questions and concise answers.',
       preview: <FaqAccordion headerStyle={headerStyle} bodyStyle={bodyStyle} />,
     },
     {
-      id: 'layout-15',
-      name: 'Single Image',
-      useWhen: 'You need one strong visual break between text sections.',
-      how: 'Pick one clear image concept and optional corner label for context.',
+      id: 'LO-15-SnglImg',
+      pattern: 'Single Image',
+      fit: 'One strong visual break between text sections.',
+      notes: 'Use one clear image concept with optional corner label.',
       preview: <ImageSingle headerStyle={headerStyle} bodyStyle={bodyStyle} />,
     },
     {
-      id: 'layout-16',
-      name: 'Two Images',
-      useWhen: 'You need a paired visual comparison.',
-      how: 'Use for before/after, capability A/B, or process stage contrasts.',
+      id: 'LO-16-TwoImgs',
+      pattern: 'Two Images',
+      fit: 'Paired visual comparisons.',
+      notes: 'Use for before/after, capability A/B, or stage contrasts.',
       preview: <ImageTwoUp headerStyle={headerStyle} bodyStyle={bodyStyle} />,
     },
     {
-      id: 'layout-17',
-      name: 'Image Grid (4)',
-      useWhen: 'You need a portfolio-like snapshot with multiple visual proofs.',
-      how: 'Keep image subjects distinct so each tile adds unique value.',
+      id: 'LO-17-ImgGrd4',
+      pattern: 'Image Grid (4)',
+      fit: 'Portfolio-style snapshots with multiple visual proofs.',
+      notes: 'Keep image subjects distinct so each tile adds unique value.',
       preview: <ImageGridFour headerStyle={headerStyle} bodyStyle={bodyStyle} />,
     },
     {
-      id: 'layout-18',
-      name: 'Heading Block H1',
-      useWhen: 'You need a robust page-level heading block.',
-      how: 'Use once per page for the primary intent or thesis statement.',
+      id: 'LO-18-HdngH1',
+      pattern: 'Heading Block H1',
+      fit: 'Robust page-level heading blocks.',
+      notes: 'Use once per page for primary intent/thesis.',
       preview: <HeadingDisplay headerStyle={headerStyle} bodyStyle={bodyStyle} />,
     },
     {
-      id: 'layout-19',
-      name: 'Heading Block H2',
-      useWhen: 'You need major section transitions under the page H1.',
-      how: 'Use to separate core sections and maintain clear hierarchy.',
+      id: 'LO-19-HdngH2',
+      pattern: 'Heading Block H2',
+      fit: 'Major section transitions under the page H1.',
+      notes: 'Separate core sections and maintain clear hierarchy.',
       preview: <HeadingSection headerStyle={headerStyle} bodyStyle={bodyStyle} />,
     },
     {
-      id: 'layout-20',
-      name: 'Heading Block H3',
-      useWhen: 'You need subsection transitions inside an H2 section.',
-      how: 'Use before grouped detail content or component clusters.',
+      id: 'LO-20-HdngH3',
+      pattern: 'Heading Block H3',
+      fit: 'Subsection transitions inside an H2 section.',
+      notes: 'Use before grouped detail content or component clusters.',
       preview: <HeadingSubsection headerStyle={headerStyle} bodyStyle={bodyStyle} />,
     },
     {
-      id: 'layout-21',
-      name: 'Heading Block H4',
-      useWhen: 'You need detailed but still visible sub-subsection headings.',
-      how: 'Place right before tactical lists, cards, or process notes.',
+      id: 'LO-21-HdngH4',
+      pattern: 'Heading Block H4',
+      fit: 'Detailed sub-subsection headings.',
+      notes: 'Place before tactical lists, cards, or process notes.',
       preview: <HeadingDetail headerStyle={headerStyle} bodyStyle={bodyStyle} />,
     },
     {
-      id: 'layout-22',
-      name: 'Heading Block H5',
-      useWhen: 'You need compact micro-transitions between dense elements.',
-      how: 'Use sparingly for short context cues, notes, or inline guidance blocks.',
+      id: 'LO-22-HdngH5',
+      pattern: 'Heading Block H5',
+      fit: 'Compact micro-transitions between dense elements.',
+      notes: 'Use sparingly for short context cues and inline guidance.',
       preview: <HeadingMicro headerStyle={headerStyle} bodyStyle={bodyStyle} />,
     },
   ];
 
   return (
     <div className="page-content about-catalog">
-      <section className="sample-text layout-18 about-catalog__intro">
+      <section className="sample-text LO-18-HdngH1 about-catalog__intro">
         <HeadingDisplay
           headerStyle={headerStyle}
           bodyStyle={bodyStyle}
-          eyebrow="Layout Option Catalog"
           title="All Available Layout Options, With Usage Guidance"
-          lead="This page is intentionally structured as a visual + textual catalog. Each section below includes: Layout ID, name, when to use it, how to use it, and a live preview."
+          lead="This page is intentionally structured as a visual + textual catalog. Each section below includes: Layout ID, pattern, best-fit context, implementation notes, and a live preview."
           beforeContext="Screenshot goal: make each option easy to identify in one long full-page capture."
           afterContext="If you share a full-page screenshot in another thread, each block is labeled so the model can map visual structure to layout IDs."
         />
@@ -192,12 +199,14 @@ const AboutJeff = () => {
 
       {catalog.map((item) => (
         <section key={item.id} className="about-catalog__item" id={`catalog-${item.id}`}>
-          <div className="about-catalog__meta">
-            <h2 style={headerStyle}>{`Layout ID: ${item.id}`}</h2>
-            <p style={bodyStyle}><strong>Name:</strong> {item.name}</p>
-            <p style={bodyStyle}><strong>Use when:</strong> {item.useWhen}</p>
-            <p style={bodyStyle}><strong>How to use:</strong> {item.how}</p>
-          </div>
+          <CatalogCard
+            headerStyle={headerStyle}
+            bodyStyle={bodyStyle}
+            layoutId={item.id}
+            pattern={item.pattern}
+            fit={item.fit}
+            notes={item.notes}
+          />
 
           <div className={`sample-text ${item.id} about-catalog__preview`}>
             {item.preview}

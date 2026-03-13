@@ -1,5 +1,6 @@
 import React from 'react';
 import ImageTile from './ImageTile';
+import LayoutOptionHeading from './LayoutOptionHeading';
 
 const defaultItems = [
   {
@@ -29,10 +30,12 @@ const defaultItems = [
 export default function ImageGridFour({ headerStyle, bodyStyle, items = defaultItems }) {
   return (
     <section className="image-layout image-layout--grid-four">
-      <h3 style={headerStyle}>Four Image Gallery</h3>
-      <p className="sample-intro" style={bodyStyle}>
-        Use a compact image grid for case-study previews, portfolio snapshots, or visual trust signals.
-      </p>
+      <LayoutOptionHeading
+        headerStyle={headerStyle}
+        bodyStyle={bodyStyle}
+        title="Four Image Gallery"
+        intro="Use a compact image grid for case-study previews, portfolio snapshots, or visual trust signals."
+      />
       <div className="image-grid image-grid--four">
         {items.slice(0, 4).map((item) => (
           <ImageTile key={item.src} item={item} />

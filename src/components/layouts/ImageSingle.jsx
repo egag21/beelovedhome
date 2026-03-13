@@ -1,5 +1,6 @@
 import React from 'react';
 import ImageTile from './ImageTile';
+import LayoutOptionHeading from './LayoutOptionHeading';
 
 const defaultItems = [
   {
@@ -13,10 +14,12 @@ const defaultItems = [
 export default function ImageSingle({ headerStyle, bodyStyle, items = defaultItems }) {
   return (
     <section className="image-layout image-layout--single">
-      <h3 style={headerStyle}>Single Image Focus</h3>
-      <p className="sample-intro" style={bodyStyle}>
-        Use one strong image when you want a clean visual break between text-heavy sections.
-      </p>
+      <LayoutOptionHeading
+        headerStyle={headerStyle}
+        bodyStyle={bodyStyle}
+        title="Single Image Focus"
+        intro="Use one strong image when you want a clean visual break between text-heavy sections."
+      />
       <ImageTile item={items[0]} />
     </section>
   );

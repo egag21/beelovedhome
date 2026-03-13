@@ -1,12 +1,15 @@
 import React from 'react';
+import LayoutOptionHeading from './LayoutOptionHeading';
 
 export default function Standard({ headerStyle, bodyStyle }) {
   return (
     <section>
-      <h3 style={headerStyle}>Strategic Website Consulting for Service Businesses</h3>
-      <p className="sample-intro" style={bodyStyle}>
-        Use this standard left-aligned layout for pages where clarity and trust are the goal.
-      </p>
+      <LayoutOptionHeading
+        headerStyle={headerStyle}
+        bodyStyle={bodyStyle}
+        title="Strategic Website Consulting for Service Businesses"
+        intro="Use this standard left-aligned layout for pages where clarity and trust are the goal."
+      />
       <p style={bodyStyle}>
         I help business owners turn confusing websites into focused brochure sites that explain what they do,
         who they help, and what to do next.

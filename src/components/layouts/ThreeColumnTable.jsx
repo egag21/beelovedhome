@@ -1,12 +1,15 @@
 import React from 'react';
+import LayoutOptionHeading from './LayoutOptionHeading';
 
 export default function ThreeColumnTable({ headerStyle, bodyStyle }) {
   return (
     <section>
-      <h3 style={headerStyle}>Typical Consulting Process</h3>
-      <p className="sample-intro" style={bodyStyle}>
-        A three-column table works well for showing phase, objective, and tangible output.
-      </p>
+      <LayoutOptionHeading
+        headerStyle={headerStyle}
+        bodyStyle={bodyStyle}
+        title="Typical Consulting Process"
+        intro="A three-column table works well for showing phase, objective, and tangible output."
+      />
       <div className="table-scroll table-scroll--wide">
         <table className="sample-table three-col" style={bodyStyle}>
           <thead>

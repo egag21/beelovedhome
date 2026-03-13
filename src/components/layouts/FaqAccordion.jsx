@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import LayoutOptionHeading from './LayoutOptionHeading';
 
 const faqItems = [
   {
@@ -32,10 +33,12 @@ export default function FaqAccordion({ headerStyle, bodyStyle }) {
 
   return (
     <section className="faq-accordion">
-      <h3 style={headerStyle}>Frequently Asked Questions</h3>
-      <p className="sample-intro" style={bodyStyle}>
-        Use an accordion to address common objections without overwhelming the page.
-      </p>
+      <LayoutOptionHeading
+        headerStyle={headerStyle}
+        bodyStyle={bodyStyle}
+        title="Frequently Asked Questions"
+        intro="Use an accordion to address common objections without overwhelming the page."
+      />
       <div className="faq-accordion__items">
         {faqItems.map((item, index) => {
           const isOpen = openIndex === index;

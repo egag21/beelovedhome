@@ -1,12 +1,15 @@
 import React from 'react';
+import LayoutOptionHeading from './LayoutOptionHeading';
 
 export default function FeatureList({ headerStyle, bodyStyle }) {
   return (
     <section>
-      <h3 style={headerStyle}>What You Get</h3>
-      <p className="sample-intro" style={bodyStyle}>
-        Feature lists work best when visitors need a fast understanding of deliverables.
-      </p>
+      <LayoutOptionHeading
+        headerStyle={headerStyle}
+        bodyStyle={bodyStyle}
+        title="What You Get"
+        intro="Feature lists work best when visitors need a fast understanding of deliverables."
+      />
       <ul className="feature-list" style={bodyStyle}>
         <li><strong>Positioning Clarity</strong> — messaging tailored to your best-fit client</li>
         <li><strong>Conversion Structure</strong> — page flow designed for qualified inquiries</li>

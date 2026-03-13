@@ -1,12 +1,15 @@
 import React from 'react';
+import LayoutOptionHeading from './LayoutOptionHeading';
 
 export default function SplitColumns({ headerStyle, bodyStyle }) {
   return (
     <section>
-      <h3 style={headerStyle}>When Split Columns Work Best</h3>
-      <p className="sample-intro" style={bodyStyle}>
-        Great for comparing two ideas: problem vs solution, current state vs future state, or service tiers.
-      </p>
+      <LayoutOptionHeading
+        headerStyle={headerStyle}
+        bodyStyle={bodyStyle}
+        title="When Split Columns Work Best"
+        intro="Great for comparing two ideas: problem vs solution, current state vs future state, or service tiers."
+      />
       <div className="split-columns">
         <div className="split-columns__panel">
           <h4 style={headerStyle}>Before Engagement</h4>

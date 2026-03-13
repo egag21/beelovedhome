@@ -1,12 +1,15 @@
 import React from 'react';
+import LayoutOptionHeading from './LayoutOptionHeading';
 
 export default function TwoColumnTable({ headerStyle, bodyStyle }) {
   return (
     <section>
-      <h3 style={headerStyle}>Engagement Options Snapshot</h3>
-      <p className="sample-intro" style={bodyStyle}>
-        Use a two-column table when you want quick scanning across offers and pricing models.
-      </p>
+      <LayoutOptionHeading
+        headerStyle={headerStyle}
+        bodyStyle={bodyStyle}
+        title="Engagement Options Snapshot"
+        intro="Use a two-column table when you want quick scanning across offers and pricing models."
+      />
       <div className="table-scroll">
         <table className="sample-table" style={bodyStyle}>
           <thead>
