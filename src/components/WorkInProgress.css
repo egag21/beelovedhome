@@ -991,6 +991,13 @@
     order: initial;
   }
 
+  .image-layout--split .image-text-layout__media img {
+    height: 100px;
+    min-height: 100px;
+    object-fit: cover;
+    object-position: center;
+  }
+
   .layout-selector {
     grid-template-columns: 1fr;
     padding: 0.85rem;

@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, Suspense, lazy } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Header from './components/Header';
 import Home from './components/Home';
@@ -6,8 +6,10 @@ import AboutJeff from './components/AboutJeff';
 import Services from './components/Services';
 import PastWork from './components/PastWork';
 import Contact from './components/Contact';
-import WorkInProgress from './components/WorkInProgress';
 import './App.css';
+
+const showWip = import.meta.env.DEV || import.meta.env.VITE_ENABLE_WIP === 'true';
+const WorkInProgress = showWip ? lazy(() => import('./components/WorkInProgress')) : null;
 
 function App() {
   useEffect(() => {
@@ -29,7 +31,16 @@ function App() {
             <Route path="/services" element={<Services />} />
             <Route path="/past-work" element={<PastWork />} />
             <Route path="/contact" element={<Contact />} />
-            <Route path="/wip" element={<WorkInProgress />} />
+            {showWip && WorkInProgress && (
+              <Route
+                path="/wip"
+                element={(
+                  <Suspense fallback={null}>
+                    <WorkInProgress />
+                  </Suspense>
+                )}
+              />
+            )}
           </Routes>
         </main>
       </div>

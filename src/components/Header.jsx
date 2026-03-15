@@ -3,6 +3,8 @@ import { NavLink, Link } from 'react-router-dom';
 import './Header.css';
 import logoMark from '../../120w/JG white 120.png';
 
+const showWip = import.meta.env.DEV || import.meta.env.VITE_ENABLE_WIP === 'true';
+
 const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const toggleMenu = () => setMenuOpen(prev => !prev);
@@ -17,7 +19,7 @@ const Header = () => {
           </Link>
         </h1>
         <button
-          className="menu-toggle"
+          className={`menu-toggle ${menuOpen ? 'is-open' : ''}`}
           onClick={toggleMenu}
           aria-label="Toggle menu"
           aria-expanded={menuOpen}
@@ -31,8 +33,18 @@ const Header = () => {
           <NavLink to="/services" onClick={() => setMenuOpen(false)} className={({ isActive }) => isActive ? 'nav-link active' : 'nav-link'}>Services</NavLink>
           <NavLink to="/past-work" onClick={() => setMenuOpen(false)} className={({ isActive }) => isActive ? 'nav-link active' : 'nav-link'}>Past Work</NavLink>
           <NavLink to="/contact" onClick={() => setMenuOpen(false)} className={({ isActive }) => isActive ? 'nav-link active' : 'nav-link'}>Contact</NavLink>
-          <NavLink to="/wip" onClick={() => setMenuOpen(false)} className={({ isActive }) => isActive ? 'nav-link active' : 'nav-link'}>WIP</NavLink>
+          {showWip && (
+            <NavLink to="/wip" onClick={() => setMenuOpen(false)} className={({ isActive }) => isActive ? 'nav-link active' : 'nav-link'}>WIP</NavLink>
+          )}
         </nav>
+        {menuOpen && (
+          <button
+            type="button"
+            className="menu-backdrop"
+            aria-label="Close menu"
+            onClick={() => setMenuOpen(false)}
+          />
+        )}
       </div>
     </header>
   );
