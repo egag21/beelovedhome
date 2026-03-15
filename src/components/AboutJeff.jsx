@@ -16,6 +16,8 @@ import FaqAccordion from './layouts/FaqAccordion';
 import ImageSingle from './layouts/ImageSingle';
 import ImageTwoUp from './layouts/ImageTwoUp';
 import ImageGridFour from './layouts/ImageGridFour';
+import ImageText from './layouts/ImageText';
+import TextImage from './layouts/TextImage';
 import HeadingDisplay from './layouts/HeadingDisplay';
 import HeadingSection from './layouts/HeadingSection';
 import HeadingSubsection from './layouts/HeadingSubsection';
@@ -146,6 +148,20 @@ const AboutJeff = () => {
       fit: 'Portfolio-style snapshots with multiple visual proofs.',
       notes: 'Keep image subjects distinct so each tile adds unique value.',
       preview: <ImageGridFour headerStyle={headerStyle} bodyStyle={bodyStyle} />,
+    },
+    {
+      id: 'LO-24-ImgText',
+      pattern: 'Image-Text',
+      fit: 'Sections where a visual should be scanned before explanation.',
+      notes: 'Image on the left, text on the right, with optional bottom-right corner caption.',
+      preview: <ImageText headerStyle={headerStyle} bodyStyle={bodyStyle} />,
+    },
+    {
+      id: 'LO-25-TextImg',
+      pattern: 'Text-Image',
+      fit: 'Sections where context should lead and visual proof should follow.',
+      notes: 'Text on the left, image on the right, with optional bottom-right corner caption.',
+      preview: <TextImage headerStyle={headerStyle} bodyStyle={bodyStyle} />,
     },
     {
       id: 'LO-18-HdngH1',

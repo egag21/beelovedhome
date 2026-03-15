@@ -28,6 +28,18 @@
   margin-top: 0.5rem;
 }
 
+.services-standard-list {
+  list-style: disc;
+  padding-left: 40px;
+  margin: 1em 0;
+}
+
+.services-image-text-hero .image-text-layout__media img {
+  min-height: clamp(320px, 38vw, 460px);
+  object-fit: cover;
+  object-position: center;
+}
+
 @media (max-width: 760px) {
   .services-page {
     gap: 1em;

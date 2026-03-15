@@ -16,6 +16,8 @@ import FaqAccordion from './layouts/FaqAccordion';
 import ImageSingle from './layouts/ImageSingle';
 import ImageTwoUp from './layouts/ImageTwoUp';
 import ImageGridFour from './layouts/ImageGridFour';
+import ImageText from './layouts/ImageText';
+import TextImage from './layouts/TextImage';
 import HeadingDisplay from './layouts/HeadingDisplay';
 import HeadingSection from './layouts/HeadingSection';
 import HeadingSubsection from './layouts/HeadingSubsection';
@@ -133,6 +135,8 @@ const WorkInProgress = () => {
     { value: 'LO-15-SnglImg', label: 'Single Image' },
     { value: 'LO-16-TwoImgs', label: 'Two Images' },
     { value: 'LO-17-ImgGrd4', label: 'Image Grid (4)' },
+    { value: 'LO-24-ImgText', label: 'Image-Text' },
+    { value: 'LO-25-TextImg', label: 'Text-Image' },
     { value: 'LO-18-HdngH1', label: 'Heading Block H1' },
     { value: 'LO-19-HdngH2', label: 'Heading Block H2' },
     { value: 'LO-20-HdngH3', label: 'Heading Block H3' },
@@ -292,6 +296,10 @@ const WorkInProgress = () => {
                   return <ImageTwoUp headerStyle={headerStyle} bodyStyle={bodyStyle} />;
                 case 'LO-17-ImgGrd4':
                   return <ImageGridFour headerStyle={headerStyle} bodyStyle={bodyStyle} />;
+                case 'LO-24-ImgText':
+                  return <ImageText headerStyle={headerStyle} bodyStyle={bodyStyle} />;
+                case 'LO-25-TextImg':
+                  return <TextImage headerStyle={headerStyle} bodyStyle={bodyStyle} />;
                 case 'LO-18-HdngH1':
                   return <HeadingDisplay headerStyle={headerStyle} bodyStyle={bodyStyle} />;
                 case 'LO-19-HdngH2':
