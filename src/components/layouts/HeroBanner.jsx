@@ -102,6 +102,7 @@ export default function HeroBanner({
 
   const headline = regions.headline || 'Turn Your Website Into a Qualified-Lead Engine';
   const body = regions.body || 'Strategic consulting for service businesses that need clearer messaging and stronger conversion paths.';
+  const micro = regions.micro || null;
   const ctaRegion = regions.cta === undefined
     ? { label: 'Schedule a Strategy Call', href: ctaUrl }
     : { ...regions.cta, href: regions.cta?.href ?? ctaUrl };
@@ -128,6 +129,7 @@ export default function HeroBanner({
             </button>
           )
         )}
+        {micro && <p className="hero__micro" style={bodyStyle}>{micro}</p>}
       </div>
     </div>
   );

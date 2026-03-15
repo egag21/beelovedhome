@@ -2,7 +2,9 @@ import React from 'react';
 import './Services.css';
 import './WorkInProgress.css';
 import ImageTile from './layouts/ImageTile';
+import HeroBanner from './layouts/HeroBanner';
 import abstractDesignImage from '../../abstract design.png';
+import ctaBackgroundImage from '../../1x/CTA BG.png';
 
 const Services = () => {
   const headerStyle = { fontFamily: 'var(--header-font, inherit)' };
@@ -36,9 +38,9 @@ const Services = () => {
             <article className="image-text-layout__content" style={bodyStyle}>
               <h2 style={headerStyle}>Website Refresh &amp; Modernization</h2>
               <p>
-                Many small business websites were created years ago and have not kept pace with current design
-                standards or customer expectations. A website refresh updates the look, improves usability, and
-                ensures that visitors can quickly find the information they need.
+                Many small business websites were created years ago and no longer meet modern expectations for
+                design and usability. A website refresh updates the look, improves usability, and ensures that
+                visitors can quickly find the information they need.
               </p>
               <p>
                 Rather than starting from scratch, many websites can be significantly improved by refining the
@@ -80,6 +82,21 @@ const Services = () => {
             </article>
           </div>
         </div>
+      </section>
+
+      <section className="services-page__section services-page__hero sample-text LO-09-HeroBnnr">
+        <HeroBanner
+          headerStyle={headerStyle}
+          bodyStyle={bodyStyle}
+          ctaUrl="/contact"
+          imageSrc={ctaBackgroundImage}
+          regions={{
+            headline: 'Ready to Improve Your Website?',
+            body: 'If your website feels outdated, unclear, or no longer reflects the quality of your business, I’d be glad to talk through what could be improved.',
+            cta: { label: 'Contact Me' },
+            micro: 'No pressure, just a conversation about what your site may need.',
+          }}
+        />
       </section>
     </div>
   );
