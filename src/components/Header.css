@@ -175,7 +175,10 @@
 }
 
 .design-4 .header {
-  background-image: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+  background-image: url('../../1x/CTA BG.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 .design-5 .header {
@@ -185,7 +188,10 @@
 }
 
 .design-6 .header {
-  background-image: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+  background-image: url('../../1x/CTA BG.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   width: 100vw;
   margin-left: calc(50% - 50vw);
   margin-right: calc(50% - 50vw);

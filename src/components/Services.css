@@ -44,10 +44,6 @@
   object-position: center;
 }
 
-.services-page__hero .hero__img {
-  filter: blur(2px) brightness(1.2) saturate(0.95) contrast(0.95);
-}
-
 @media (max-width: 760px) {
   .services-page {
     gap: 1em;
