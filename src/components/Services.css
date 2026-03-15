@@ -14,6 +14,10 @@
   box-shadow: none;
 }
 
+.services-page__h1-buffer {
+  margin-top: 40px;
+}
+
 .services-page__section h2:not(.heading-layout__title) {
   margin: 0 0 0.65rem 0;
 }
@@ -38,6 +42,10 @@
   min-height: clamp(320px, 38vw, 460px);
   object-fit: cover;
   object-position: center;
+}
+
+.services-page__hero .hero__img {
+  filter: blur(2px) brightness(1.2) saturate(0.95) contrast(0.95);
 }
 
 @media (max-width: 760px) {

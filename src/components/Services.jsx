@@ -3,6 +3,7 @@ import './Services.css';
 import './WorkInProgress.css';
 import ImageTile from './layouts/ImageTile';
 import HeroBanner from './layouts/HeroBanner';
+import HeadingDisplay from './layouts/HeadingDisplay';
 import abstractDesignImage from '../../abstract design.png';
 import ctaBackgroundImage from '../../1x/CTA BG.png';
 
@@ -12,8 +13,18 @@ const Services = () => {
 
   return (
     <div className="page-content services-page">
+      <section className="services-page__section services-page__h1-buffer sample-text LO-18-HdngH1">
+        <HeadingDisplay
+          headerStyle={headerStyle}
+          bodyStyle={bodyStyle}
+          title="Modernizing Small Business Websites and Improving Their Online Presence"
+          lead={null}
+          beforeContext={null}
+          afterContext={null}
+        />
+      </section>
+
       <section className="services-page__section sample-text LO-01-Stnd">
-        <h2 style={headerStyle}>Modernizing Small Business Websites and Improving Their Online Presence</h2>
         <p style={bodyStyle}>
           Many small business websites were created years ago and no longer reflect the quality of the
           business behind them. Outdated design, poor mobile compatibility, and confusing layouts can make
@@ -94,7 +105,6 @@ const Services = () => {
             headline: 'Ready to Improve Your Website?',
             body: 'If your website feels outdated, unclear, or no longer reflects the quality of your business, I’d be glad to talk through what could be improved.',
             cta: { label: 'Contact Me' },
-            micro: 'No pressure, just a conversation about what your site may need.',
           }}
         />
       </section>
