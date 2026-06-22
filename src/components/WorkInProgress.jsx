@@ -334,7 +334,8 @@ const WorkInProgress = () => {
                 className={`layout-btn ${selectedLayout === layout.value ? 'active' : ''}`}
                 onClick={() => setSelectedLayout(layout.value)}
               >
-                {layout.label}
+                <span className="layout-btn__label">{layout.label}</span>
+                <span className="layout-btn__code">{layout.value}</span>
               </button>
             ))}
           </div>

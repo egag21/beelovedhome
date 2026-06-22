@@ -360,6 +360,10 @@
   background: transparent;
 }
 
+.home-page > .sample-text.LO-14-HrFllWdt:first-child {
+  margin-top: -2rem;
+}
+
 /* Testimonial cards for LO-10-TstmCrd */
 .testimonial-grid {
   display: grid;
@@ -932,6 +936,10 @@
     padding: 1em;
   }
 
+  .home-page > .sample-text.LO-14-HrFllWdt:first-child {
+    margin-top: -1em;
+  }
+
   .sample-text.LO-01-StndCnt {
     text-align: left;
   }
@@ -1173,6 +1181,7 @@
   margin: 0;
   border: 2px solid var(--primary-color);
   padding: 0.75rem;
+  text-align: left;
 }
 
 .font-btn,
@@ -1184,6 +1193,21 @@
   border-radius: 4px;
   cursor: pointer;
   transition: background-color 0.3s ease;
+}
+
+.layout-btn__label {
+  display: block;
+  font-weight: 650;
+  line-height: 1.2;
+}
+
+.layout-btn__code {
+  display: block;
+  margin-top: 0.28rem;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  font-size: 0.76rem;
+  letter-spacing: 0.01em;
+  opacity: 0.82;
 }
 
 .font-btn.active,
