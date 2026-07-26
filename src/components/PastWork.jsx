@@ -338,6 +338,16 @@ export default function Portfolio() {
               application as a practical visual aid, used humor to build rapport, and closed with a clear download
               action.
             </p>
+            <div className="button-row">
+              <a
+                className="button-link button-link--secondary"
+                href="https://www.c2cstory.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Visit the C2C Story website
+              </a>
+            </div>
             <blockquote>
               “Could I show you a story that changed my life?”
             </blockquote>
