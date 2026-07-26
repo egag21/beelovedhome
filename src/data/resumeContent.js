@@ -166,10 +166,10 @@ export const proofPoints = [
 export const portfolioProjects = [
   {
     id: 'grn-map-app',
-    title: 'GRN Map App Redesign Proposal',
-    discipline: 'Product Analysis, UX Design & Technical Communication',
+    title: 'GRN Map App Redesign & Front-End Prototype',
+    discipline: 'Product Analysis, UX Design, Front-End Prototyping & Technical Communication',
     year: '2026',
-    challenge: 'Make extensive language-resource data easier to use on small screens while unifying competing workflows.',
+    challenge: 'Redesign a complex language-resource application and independently implement its responsive prototype front end.',
   },
   {
     id: 'developmental-editing',

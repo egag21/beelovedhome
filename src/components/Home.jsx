@@ -76,25 +76,30 @@ const Home = () => {
         <article className="featured-case">
           <div>
             <p className="eyebrow">Featured project · 2026</p>
-            <h3>GRN Map App Redesign Proposal</h3>
+            <h3>GRN Map App Redesign & Front-End Prototype</h3>
             <p>
               Following an all-day stakeholder meeting, I synthesized feedback into a 34-page product
-              analysis and redesign proposal for a complex language-resource mapping application.
+              analysis and redesign proposal, then independently implemented the responsive prototype
+              front end.
             </p>
             <ul className="check-list">
               <li>Reorganized the information architecture</li>
               <li>Consolidated competing search behavior</li>
-              <li>Created mobile and desktop mockups</li>
+              <li>Designed the mobile and desktop experiences</li>
+              <li>Implemented the complete responsive front end</li>
+              <li>Collaborated with a backend developer on data integration</li>
               <li>Documented interactions, technical considerations, and edge cases</li>
             </ul>
             <a className="text-link" href="/portfolio#grn-map-app">Read the case study <span aria-hidden="true">→</span></a>
           </div>
-          <figure className="project-figure">
+          <figure className="project-figure project-figure--featured">
             <img
-              src="/portfolio/grn/default-home-screen.png"
-              alt="GRN Map App proposed mobile default home screen with explanatory notes"
+              src="/portfolio/grn/prototype/default-home-screen.png"
+              alt="GRN Map App mobile front-end prototype showing the default map home screen"
+              width="1179"
+              height="2556"
             />
-            <figcaption>Proposal mockup · Default Home Screen</figcaption>
+            <figcaption>Front-end prototype · Default Home Screen</figcaption>
           </figure>
         </article>
         <div className="project-link-grid">

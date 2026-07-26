@@ -11,9 +11,63 @@ const grnSkills = [
   'Content strategy',
   'Information architecture',
   'UX writing',
+  'Responsive front-end implementation',
+  'Backend data integration collaboration',
   'Functional documentation',
   'Mobile-first design',
   'Communication of complex technical concepts',
+];
+
+const grnComparisons = [
+  {
+    title: 'Default Home Screen',
+    description: 'The map-first redesign became a responsive prototype with persistent navigation, search, layer controls, and map tools.',
+    redesign: '/portfolio/grn/redesign/default-home-screen.png',
+    redesignAlt: 'Original GRN Map App mobile default home screen redesign',
+    redesignWidth: 434,
+    redesignHeight: 936,
+    prototype: '/portfolio/grn/prototype/default-home-screen.png',
+    prototypeAlt: 'Working GRN Map App mobile prototype showing the default home screen',
+    prototypeWidth: 1179,
+    prototypeHeight: 2556,
+  },
+  {
+    title: 'Information Panel',
+    description: 'The proposed information hierarchy became an interactive tray that keeps map context visible while presenting detailed language data.',
+    redesign: '/portfolio/grn/redesign/information-panel.png',
+    redesignAlt: 'Original GRN Map App mobile information panel redesign',
+    redesignWidth: 434,
+    redesignHeight: 936,
+    prototype: '/portfolio/grn/prototype/information-panel.png',
+    prototypeAlt: 'Working GRN Map App mobile prototype showing an open information panel',
+    prototypeWidth: 1179,
+    prototypeHeight: 2556,
+  },
+  {
+    title: 'Universal Search',
+    description: 'The unified search concept became a focused mobile workflow for finding languages, countries, places, and identifiers from one field.',
+    redesign: '/portfolio/grn/redesign/universal-search.png',
+    redesignAlt: 'Original GRN Map App universal search redesign',
+    redesignWidth: 217,
+    redesignHeight: 469,
+    prototype: '/portfolio/grn/prototype/universal-search.png',
+    prototypeAlt: 'Working GRN Map App mobile prototype showing universal search results',
+    prototypeWidth: 1179,
+    prototypeHeight: 2556,
+  },
+  {
+    title: 'Desktop Search Results',
+    description: 'The large-screen redesign became a spacious desktop experience that keeps detailed results, the selected geography, and the active legend visible together.',
+    redesign: '/portfolio/grn/redesign/desktop-search-results.png',
+    redesignAlt: 'Original GRN Map App large-screen search results redesign',
+    redesignWidth: 470,
+    redesignHeight: 265,
+    prototype: '/portfolio/grn/prototype/desktop-search-results.png',
+    prototypeAlt: 'Working GRN Map App desktop prototype showing search results beside the map',
+    prototypeWidth: 3018,
+    prototypeHeight: 1656,
+    wide: true,
+  },
 ];
 
 const developmentalDecisions = [
@@ -73,13 +127,13 @@ export default function Portfolio() {
         <HeadingSection
           headerStyle={headerStyle}
           bodyStyle={bodyStyle}
-          eyebrow="Product analysis · UX design · technical communication · 2026"
-          title="GRN Map App Redesign Proposal"
-          lead="A 34-page stakeholder proposal for improving a complex language-resource mapping application across mobile and desktop."
+          eyebrow="Product analysis · UX design · front-end prototyping · technical communication · 2026"
+          title="GRN Map App Redesign & Front-End Prototype"
+          lead="A 34-page stakeholder proposal translated into a working, responsive front-end prototype for a complex language-resource mapping application."
           beforeContext={null}
           afterContext={null}
         />
-        <div className="case-summary-grid">
+        <div className="case-summary-grid case-summary-grid--single">
           <div className="standard-copy">
             <h3>The challenge</h3>
             <p>
@@ -89,37 +143,81 @@ export default function Portfolio() {
             <h3>The contribution</h3>
             <p>
               Following an all-day stakeholder meeting, I synthesized feedback, established design priorities,
-              reorganized the information architecture, consolidated search behavior, created mobile and desktop
-              mockups, and documented interaction requirements, technical considerations, and edge cases.
+              reorganized the information architecture, consolidated search behavior, and designed the mobile and
+              desktop experiences. I then independently implemented the responsive prototype front end and
+              documented its interaction requirements, technical considerations, and edge cases.
+            </p>
+            <p>
+              I collaborated with a backend developer on access to and integration of the application&apos;s data;
+              the front-end design and implementation were entirely my work.
             </p>
             <p className="proposal-note">
-              These images represent a proposal for potential changes, not a shipped-product claim.
+              The comparisons below pair my original redesign artifacts with the working front-end prototype I
+              designed and implemented. Backend data access and integration were developed in collaboration with
+              a backend developer.
             </p>
           </div>
-          <figure className="project-figure project-figure--large">
-            <a href="/portfolio/grn/default-home-screen.png">
-              <img
-                src="/portfolio/grn/default-home-screen.png"
-                alt="GRN Map App proposed mobile default home screen with explanatory notes"
-              />
-            </a>
-            <figcaption>Proposal mockup · Default Home Screen · source portfolio excerpt</figcaption>
-          </figure>
         </div>
-        <div className="artifact-grid">
-          {[
-            ['Information, Multi Data', '/portfolio/grn/information-multi-data.png'],
-            ['Search, Universal', '/portfolio/grn/search-universal.png'],
-            ['Large Screen Search Results', '/portfolio/grn/large-screen-search-results.png'],
-          ].map(([title, src]) => (
-            <figure className="project-figure" key={title}>
-              <a href={src}>
-                <img src={src} alt={`GRN Map App proposal excerpt: ${title}`} />
-              </a>
-              <figcaption>Proposal mockup · {title}</figcaption>
-            </figure>
-          ))}
-        </div>
+        <section className="design-evolution" aria-labelledby="design-evolution-title">
+          <div className="design-evolution__intro">
+            <p className="eyebrow">Design evolution</p>
+            <h3 id="design-evolution-title">From redesign to working prototype</h3>
+            <p>
+              Each comparison shows how the proposed interaction and layout translated into the responsive
+              front-end prototype. Select any image to view it at full resolution.
+            </p>
+          </div>
+          <div className="comparison-list">
+            {grnComparisons.map((comparison) => (
+              <article
+                className={`comparison-card${comparison.wide ? ' comparison-card--wide' : ''}`}
+                id={`comparison-${comparison.title.toLowerCase().replaceAll(' ', '-')}`}
+                key={comparison.title}
+              >
+                <header className="comparison-card__header">
+                  <h4>{comparison.title}</h4>
+                  <p>{comparison.description}</p>
+                </header>
+                <div className="comparison-grid">
+                  <figure className="comparison-frame comparison-frame--redesign">
+                    <figcaption>
+                      <span>01</span>
+                      <strong>Original redesign</strong>
+                    </figcaption>
+                    <div className={`comparison-stage${comparison.wide ? ' comparison-stage--wide' : ''}`}>
+                      <a href={comparison.redesign}>
+                        <img
+                          src={comparison.redesign}
+                          alt={comparison.redesignAlt}
+                          width={comparison.redesignWidth}
+                          height={comparison.redesignHeight}
+                          loading="lazy"
+                        />
+                      </a>
+                    </div>
+                  </figure>
+                  <figure className="comparison-frame comparison-frame--prototype">
+                    <figcaption>
+                      <span>02</span>
+                      <strong>Working prototype</strong>
+                    </figcaption>
+                    <div className={`comparison-stage${comparison.wide ? ' comparison-stage--wide' : ''}`}>
+                      <a href={comparison.prototype}>
+                        <img
+                          src={comparison.prototype}
+                          alt={comparison.prototypeAlt}
+                          width={comparison.prototypeWidth}
+                          height={comparison.prototypeHeight}
+                          loading="lazy"
+                        />
+                      </a>
+                    </div>
+                  </figure>
+                </div>
+              </article>
+            ))}
+          </div>
+        </section>
         <div className="case-detail">
           <h3>Skills demonstrated</h3>
           <FeatureList items={grnSkills} className="check-list--columns" />

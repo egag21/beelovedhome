@@ -457,6 +457,11 @@ body {
   object-position: center 30%;
 }
 
+.project-figure--featured img {
+  height: 360px;
+  object-position: center top;
+}
+
 .project-figure figcaption {
   padding: 0.75rem 0.9rem;
   color: var(--muted);
@@ -551,10 +556,14 @@ body {
 }
 
 .case-detail {
-  margin-top: 2rem;
+  margin-top: clamp(3rem, 6vw, 5rem);
   padding: 1.5rem;
   border-radius: var(--radius);
   background: var(--paper-deep);
+}
+
+.case-summary-grid--single {
+  grid-template-columns: minmax(0, 820px);
 }
 
 .case-detail h3,
@@ -593,6 +602,159 @@ body {
   padding-left: 1rem;
   border-left: 3px solid var(--gold);
   font-size: 0.9rem !important;
+}
+
+.design-evolution {
+  margin-top: clamp(4rem, 8vw, 7rem);
+}
+
+.design-evolution__intro {
+  max-width: 760px;
+}
+
+.design-evolution__intro h3 {
+  margin: 0;
+  color: var(--violet-dark);
+  font-size: clamp(1.8rem, 4vw, 2.8rem);
+  line-height: 1.1;
+}
+
+.design-evolution__intro > p:last-child {
+  margin: 1rem 0 0;
+  color: var(--muted);
+  font-size: 1.02rem;
+  line-height: 1.7;
+}
+
+.comparison-list {
+  display: grid;
+  gap: clamp(3rem, 7vw, 5.5rem);
+  margin-top: clamp(2rem, 5vw, 3.5rem);
+}
+
+.comparison-card {
+  padding: clamp(1.25rem, 3.5vw, 2.75rem);
+  border: 1px solid var(--line);
+  border-radius: calc(var(--radius) + 8px);
+  background: rgba(255, 255, 255, 0.88);
+  box-shadow: var(--shadow);
+}
+
+.comparison-card__header {
+  max-width: 760px;
+  margin-bottom: clamp(1.5rem, 4vw, 2.5rem);
+}
+
+.comparison-card__header h4 {
+  margin: 0;
+  color: var(--violet-dark);
+  font-size: clamp(1.35rem, 2.5vw, 1.85rem);
+}
+
+.comparison-card__header p {
+  margin: 0.7rem 0 0;
+  color: var(--muted);
+  line-height: 1.65;
+}
+
+.comparison-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(1.25rem, 4vw, 3rem);
+  align-items: stretch;
+}
+
+.comparison-card--wide .comparison-grid {
+  grid-template-columns: 1fr;
+  gap: clamp(2rem, 5vw, 3.5rem);
+}
+
+.comparison-frame {
+  min-width: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: #fff;
+}
+
+.comparison-frame--prototype {
+  border-color: #b9b2d8;
+  box-shadow: 0 14px 38px rgba(40, 59, 145, 0.12);
+}
+
+.comparison-frame figcaption {
+  min-height: 62px;
+  padding: 0.9rem 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  border-bottom: 1px solid var(--line);
+  color: var(--violet-dark);
+}
+
+.comparison-frame figcaption span {
+  width: 1.9rem;
+  height: 1.9rem;
+  display: grid;
+  place-items: center;
+  flex: 0 0 auto;
+  border-radius: 50%;
+  background: var(--paper-deep);
+  color: var(--violet);
+  font-size: 0.72rem;
+  font-weight: 850;
+}
+
+.comparison-frame--prototype figcaption span {
+  background: var(--indigo);
+  color: #fff;
+}
+
+.comparison-stage {
+  min-height: 660px;
+  padding: clamp(1rem, 2.5vw, 1.75rem);
+  display: grid;
+  place-items: center;
+  flex: 1;
+  background:
+    linear-gradient(135deg, rgba(95, 43, 131, 0.035), rgba(127, 198, 215, 0.09)),
+    #f8f8fa;
+}
+
+.comparison-stage a {
+  max-width: 100%;
+  display: block;
+}
+
+.comparison-stage img {
+  display: block;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  max-height: 680px;
+  border: 1px solid rgba(23, 21, 38, 0.14);
+  background: #fff;
+  box-shadow: 0 10px 28px rgba(23, 21, 38, 0.1);
+}
+
+.comparison-stage--wide {
+  min-height: 0;
+  padding: clamp(1.25rem, 3.5vw, 2.75rem);
+}
+
+.comparison-stage--wide img {
+  max-height: none;
+}
+
+.comparison-card--wide .comparison-frame--redesign .comparison-stage img {
+  width: auto;
+}
+
+.comparison-card--wide .comparison-frame--prototype .comparison-stage img {
+  width: 100%;
 }
 
 .artifact-grid {
@@ -940,7 +1102,8 @@ body {
   .content-card-grid--two,
   .proof-grid,
   .project-link-grid,
-  .artifact-grid {
+  .artifact-grid,
+  .comparison-grid {
     grid-template-columns: 1fr;
   }
 
@@ -954,6 +1117,18 @@ body {
 
   .check-list--columns {
     grid-template-columns: 1fr;
+  }
+
+  .comparison-card {
+    padding: clamp(1rem, 4vw, 1.5rem);
+  }
+
+  .comparison-stage {
+    min-height: 0;
+  }
+
+  .comparison-stage img {
+    max-height: none;
   }
 }
 
