@@ -1,7 +1,7 @@
 import React from 'react';
 import HeroFullWidth from './layouts/HeroFullWidth';
 import HeadingSection from './layouts/HeadingSection';
-import { competencyGroups, contact, imagePrompts, portfolioProjects, professionalSummary, proofPoints, resumePdfPath } from '../data/resumeContent';
+import { competencyGroups, contact, portfolioProjects, professionalSummary, proofPoints, resumePdfPath } from '../data/resumeContent';
 
 const Home = () => {
   const headerStyle = { fontFamily: 'var(--header-font, inherit)' };
@@ -13,7 +13,8 @@ const Home = () => {
         <HeroFullWidth
           headerStyle={headerStyle}
           bodyStyle={bodyStyle}
-          promptText={imagePrompts.hero}
+          imageSrc="/images/hero-editorial-background.png"
+          imageAlt=""
           regions={{
             eyebrow: contact.location,
             headline: contact.name,

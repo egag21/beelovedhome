@@ -4,8 +4,7 @@ import HeadingSection from './layouts/HeadingSection';
 import FeatureList from './layouts/FeatureList';
 import SplitColumns from './layouts/SplitColumns';
 import ThreeColumnTable from './layouts/ThreeColumnTable';
-import VisualPlaceholder from './VisualPlaceholder';
-import { education, experience, imagePrompts } from '../data/resumeContent';
+import { education, experience } from '../data/resumeContent';
 
 const workingApproach = [
   'Translate complexity for the intended audience',
@@ -35,11 +34,12 @@ export default function AboutJeff() {
       </section>
 
       <section className="section section--compact about-profile">
-        <VisualPlaceholder
-          label="Square headshot placeholder"
-          prompt="Replace this placeholder with Jeffrey’s square professional headshot when provided."
-          square
-        />
+        <figure className="headshot">
+          <img
+            src="/images/jeffrey-gage-headshot-square.png"
+            alt="Jeffrey Gage"
+          />
+        </figure>
         <div className="standard-copy">
           <p>
             My titles have varied—from software developer and user experience designer to publishing director,
@@ -104,10 +104,13 @@ export default function AboutJeff() {
             organizational partners.
           </p>
         </div>
-        <VisualPlaceholder
-          label="AI image prompt placeholder · decorative"
-          prompt={imagePrompts.international}
-        />
+        <figure className="supporting-visual">
+          <img
+            src="/images/international-collaboration.png"
+            alt=""
+          />
+          <figcaption>Decorative artwork representing distributed collaboration</figcaption>
+        </figure>
       </section>
 
       <section className="section">

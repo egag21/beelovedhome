@@ -4,8 +4,7 @@ import HeadingSection from './layouts/HeadingSection';
 import CardsGrid from './layouts/CardsGrid';
 import FeatureList from './layouts/FeatureList';
 import SplitColumns from './layouts/SplitColumns';
-import VisualPlaceholder from './VisualPlaceholder';
-import { imagePrompts, portfolioProjects } from '../data/resumeContent';
+import { portfolioProjects } from '../data/resumeContent';
 
 const grnSkills = [
   'Stakeholder collaboration',
@@ -138,10 +137,13 @@ export default function Portfolio() {
           afterContext={null}
         />
         <div className="media-text media-text--prompt">
-          <VisualPlaceholder
-            label="AI image prompt placeholder · decorative"
-            prompt={imagePrompts.developmentalEditing}
-          />
+          <figure className="supporting-visual">
+            <img
+              src="/images/developmental-editing.png"
+              alt=""
+            />
+            <figcaption>Decorative editorial artwork</figcaption>
+          </figure>
           <div className="standard-copy">
             <h3>Editorial approach</h3>
             <p>
@@ -242,10 +244,13 @@ export default function Portfolio() {
               ]}
             />
           </div>
-          <VisualPlaceholder
-            label="AI image prompt placeholder · decorative"
-            prompt={imagePrompts.c2c}
-          />
+          <figure className="supporting-visual">
+            <img
+              src="/images/c2c-story.png"
+              alt=""
+            />
+            <figcaption>Decorative visual-storytelling artwork</figcaption>
+          </figure>
         </div>
       </article>
     </div>
