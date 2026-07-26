@@ -22,12 +22,12 @@ function App() {
         <Header />
         <main className="site-main">
           <Routes>
-            <Route path="/" element={<Navigate to="/home" replace />} />
-            <Route path="/home" element={<Home />} />
+            <Route path="/" element={<Home />} />
+            <Route path="/home" element={<Navigate to="/" replace />} />
             <Route path="/portfolio" element={<PastWork />} />
             <Route path="/about" element={<AboutJeff />} />
             <Route path="/cv-contact" element={<Contact />} />
-            <Route path="*" element={<Navigate to="/home" replace />} />
+            <Route path="*" element={<Navigate to="/" replace />} />
           </Routes>
         </main>
         <Footer />

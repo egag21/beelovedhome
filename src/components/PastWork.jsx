@@ -102,25 +102,34 @@ export default function Portfolio() {
 
   return (
     <div className="resume-page">
-      <section className="page-intro">
+      <section className="page-intro portfolio-intro">
         <HeadingDisplay
           headerStyle={headerStyle}
           bodyStyle={bodyStyle}
+          className="portfolio-intro__heading"
           eyebrow="Portfolio"
-          title="Selected Work"
-          lead="Each sample reflects a common goal: helping organizations communicate clearly, engage their audiences, and advance their mission."
+          title={(
+            <>
+              Ideas made clear.
+              <span>Complex work made useful.</span>
+            </>
+          )}
+          lead="Selected projects spanning editorial strategy, UX design, technical communication, and front-end implementation—each shaped to help organizations communicate clearly and move their mission forward."
           beforeContext={null}
           afterContext={null}
         />
-        <nav className="jump-nav" aria-label="Portfolio case studies">
-          {portfolioProjects.map((project) => (
-            <a href={`#${project.id}`} key={project.id}>{project.title}</a>
-          ))}
-        </nav>
+        <div className="portfolio-jump">
+          <p>Jump to a project</p>
+          <nav className="jump-nav" aria-label="Portfolio case studies">
+            {portfolioProjects.map((project) => (
+              <a href={`#${project.id}`} key={project.id}>{project.title}</a>
+            ))}
+          </nav>
+        </div>
       </section>
 
       <section className="section section--compact" aria-label="Portfolio overview">
-        <CardsGrid cards={projectCards} className="content-card-grid--two" />
+        <CardsGrid cards={projectCards} className="portfolio-overview-grid" />
       </section>
 
       <article className="case-study section" id="grn-map-app">

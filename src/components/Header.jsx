@@ -12,7 +12,7 @@ const Header = () => {
     <header className="site-header">
       <div className="header-container">
         <p className="logo">
-          <Link to="/home" className="logo-link">
+          <Link to="/" className="logo-link">
             <img src={logoMark} alt="" className="logo-mark" aria-hidden="true" />
             <span>Jeffrey Gage</span>
           </Link>
@@ -27,7 +27,7 @@ const Header = () => {
           <span className="hamburger" aria-hidden="true" />
         </button>
         <nav id="site-nav" className={`nav ${menuOpen ? 'open' : ''}`}>
-          <NavLink to="/home" onClick={() => setMenuOpen(false)} className={({ isActive }) => isActive ? 'nav-link active' : 'nav-link'}>Home</NavLink>
+          <NavLink to="/" end onClick={() => setMenuOpen(false)} className={({ isActive }) => isActive ? 'nav-link active' : 'nav-link'}>Home</NavLink>
           <NavLink to="/portfolio" onClick={() => setMenuOpen(false)} className={({ isActive }) => isActive ? 'nav-link active' : 'nav-link'}>Portfolio</NavLink>
           <NavLink to="/about" onClick={() => setMenuOpen(false)} className={({ isActive }) => isActive ? 'nav-link active' : 'nav-link'}>About</NavLink>
           <NavLink to="/cv-contact" onClick={() => setMenuOpen(false)} className={({ isActive }) => isActive ? 'nav-link active' : 'nav-link'}>CV &amp; Contact</NavLink>

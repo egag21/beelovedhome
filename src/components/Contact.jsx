@@ -63,7 +63,7 @@ export default function CvContact() {
           initialOpenIndex={0}
           items={experience.map((role) => ({
             title: `${role.title} · ${role.organization}`,
-            meta: [role.location, role.period].filter(Boolean).join(' · '),
+            meta: role.location ? `${role.location} · ${role.period}` : role.period,
             summary: role.summary,
             items: role.bullets,
           }))}

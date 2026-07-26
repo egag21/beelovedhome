@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 
 const pageTitles = {
-  '/home': 'Jeffrey Gage | Editorial, Communications & Digital Product Professional',
+  '/': 'Jeffrey Gage | Editorial, Communications & Digital Product Professional',
   '/portfolio': 'Selected Work | Jeffrey Gage',
   '/about': 'About Jeffrey Gage',
   '/cv-contact': 'CV & Contact | Jeffrey Gage',

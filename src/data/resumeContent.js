@@ -56,7 +56,7 @@ export const experience = [
     period: '2025-Present',
     title: 'Technical Designer & Writer',
     organization: 'LightSys Technology Services',
-    location: '',
+    location: 'Colorado Springs, Colorado',
     summary: 'Content strategy, technical communication, UX design, and front-end implementation for mission-focused digital projects.',
     bullets: [
       'Write and edit recurring articles, organizational updates, technical documentation, training resources, and digital content for internal and external audiences.',
@@ -70,7 +70,7 @@ export const experience = [
     period: '2010-2025',
     title: 'UI/UX Designer, Front-End Developer, Writer',
     organization: 'Greater Europe Mission',
-    location: '',
+    location: 'Kandern, Germany',
     summary: 'International digital initiatives, accessible content, user experiences, and cross-functional collaboration.',
     bullets: [
       'Developed content, information architecture, user experiences, and front-end interfaces for more than a dozen international digital initiatives, including mobile applications, interactive storytelling experiences, secure communication platforms, and multilingual websites.',
@@ -95,7 +95,7 @@ export const experience = [
     period: '2006-2009',
     title: 'Director of Publishing',
     organization: 'Community Bible Study',
-    location: '',
+    location: 'Colorado Springs, Colorado',
     summary: 'Department leadership, long-form publishing, editorial standards, and production workflows.',
     bullets: [
       'Directed a six-person publishing department responsible for developing, editing, designing, and producing long-form educational publications for hundreds of thousands of participants worldwide.',
