@@ -2,21 +2,19 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta
-      http-equiv="refresh"
-      content="0; url=/Jeffrey_Gage_Cover_Resume_Portfolio_July_26_2026.pdf"
-    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="robots" content="noindex" />
     <title>Jeffrey Gage</title>
     <script>
-      window.location.replace(
-        "/Jeffrey_Gage_Cover_Resume_Portfolio_July_26_2026.pdf",
-      );
+      if (window.location.pathname === "/") {
+        window.location.replace(
+          "/Jeffrey_Gage_Cover_Resume_Portfolio_July_26_2026.pdf",
+        );
+      }
     </script>
   </head>
   <body>
-    <a href="/Jeffrey_Gage_Cover_Resume_Portfolio_July_26_2026.pdf">
-      View Jeffrey Gage's portfolio
-    </a>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>

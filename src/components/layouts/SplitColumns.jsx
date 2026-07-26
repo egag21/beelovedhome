@@ -1,33 +1,17 @@
 import React from 'react';
-import LayoutOptionHeading from './LayoutOptionHeading';
+import FeatureList from './FeatureList';
 
-export default function SplitColumns({ headerStyle, bodyStyle }) {
+export default function SplitColumns({ columns = [], className = '' }) {
   return (
-    <section>
-      <LayoutOptionHeading
-        headerStyle={headerStyle}
-        bodyStyle={bodyStyle}
-        title="When Split Columns Work Best"
-        intro="Great for comparing two ideas: problem vs solution, current state vs future state, or service tiers."
-      />
-      <div className="split-columns">
-        <div className="split-columns__panel">
-          <h4 style={headerStyle}>Before Engagement</h4>
-          <ul className="split-columns__list" style={bodyStyle}>
-            <li>Website messaging is broad and unclear</li>
-            <li>Traffic arrives but inquiries are inconsistent</li>
-            <li>Internal teams disagree on priorities</li>
-          </ul>
-        </div>
-        <div className="split-columns__panel">
-          <h4 style={headerStyle}>After Engagement</h4>
-          <ul className="split-columns__list" style={bodyStyle}>
-            <li>Positioning is focused on your ideal buyer</li>
-            <li>Service pages guide visitors to action</li>
-            <li>Roadmap aligns content, design, and delivery</li>
-          </ul>
-        </div>
-      </div>
-    </section>
+    <div className={`split-columns ${className}`.trim()}>
+      {columns.map((column) => (
+        <article className="split-columns__panel" key={column.title}>
+          <p className="eyebrow">{column.eyebrow}</p>
+          <h3>{column.title}</h3>
+          {column.paragraphs?.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
+          {column.items && <FeatureList items={column.items} />}
+        </article>
+      ))}
+    </div>
   );
 }

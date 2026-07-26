@@ -1,73 +1,122 @@
 import React from 'react';
-import './WorkInProgress.css';
 import HeadingDisplay from './layouts/HeadingDisplay';
 import HeadingSection from './layouts/HeadingSection';
-import HeadingSubsection from './layouts/HeadingSubsection';
-import HeadingDetail from './layouts/HeadingDetail';
-import HeadingMicro from './layouts/HeadingMicro';
+import CardsGrid from './layouts/CardsGrid';
+import FaqAccordion from './layouts/FaqAccordion';
+import SplitColumns from './layouts/SplitColumns';
+import StandardCentered from './layouts/StandardCentered';
+import { competencyGroups, contact, education, experience, professionalSummary, resumePdfPath } from '../data/resumeContent';
 
-const Contact = () => {
+export default function CvContact() {
   const headerStyle = { fontFamily: 'var(--header-font, inherit)' };
   const bodyStyle = { fontFamily: 'var(--body-font, inherit)' };
 
   return (
-    <div className="page-content">
-      <section className="sample-text LO-18-HdngH1">
+    <div className="resume-page">
+      <section className="page-intro cv-intro">
         <HeadingDisplay
           headerStyle={headerStyle}
           bodyStyle={bodyStyle}
-          title="Start With a Focused Strategy Conversation"
-          lead="If your website is not clearly communicating value or generating the right inquiries, we can map practical next steps in a single call."
+          eyebrow="Curriculum vitae"
+          title="CV & Contact"
+          lead={professionalSummary}
           beforeContext={null}
           afterContext={null}
         />
+        <div className="button-row">
+          <a className="button-link button-link--primary" href={resumePdfPath}>Download PDF CV</a>
+          <a className="button-link button-link--secondary" href={contact.emailHref}>Email Jeffrey</a>
+          <a className="button-link button-link--secondary" href={contact.phoneHref}>Call {contact.phone}</a>
+        </div>
       </section>
 
-      <section className="sample-text LO-19-HdngH2" style={{ marginTop: '1rem' }}>
+      <section className="section">
         <HeadingSection
           headerStyle={headerStyle}
           bodyStyle={bodyStyle}
-          title="Best Way To Connect"
-          lead="Use email for project details and timelines, or connect on LinkedIn if you prefer to start with a quick message."
+          eyebrow="Core competencies"
+          title="Editorial, leadership, technology, and data"
+          lead="The complete competency groups from the current CV."
           beforeContext={null}
           afterContext={null}
+        />
+        <CardsGrid
+          className="content-card-grid--three"
+          cards={competencyGroups.map((group) => ({
+            title: group.title,
+            items: group.items,
+          }))}
         />
       </section>
 
-      <section className="sample-text LO-20-HdngH3" style={{ marginTop: '1rem' }}>
-        <HeadingSubsection
+      <section className="section">
+        <HeadingSection
           headerStyle={headerStyle}
           bodyStyle={bodyStyle}
-          title="Email, Phone, and LinkedIn"
-          lead="Email: jeff@example.com | Phone: (123) 456-7890 | LinkedIn: linkedin.com/in/jeffgage"
+          eyebrow="Professional experience"
+          title="Experience from 1998 to the present"
+          lead="Expand each role to read the complete source-backed CV details."
           beforeContext={null}
           afterContext={null}
+        />
+        <FaqAccordion
+          initialOpenIndex={0}
+          items={experience.map((role) => ({
+            title: `${role.title} · ${role.organization}`,
+            meta: [role.location, role.period].filter(Boolean).join(' · '),
+            summary: role.summary,
+            items: role.bullets,
+          }))}
         />
       </section>
 
-      <section className="sample-text LO-21-HdngH4" style={{ marginTop: '1rem' }}>
-        <HeadingDetail
+      <section className="section">
+        <HeadingSection
           headerStyle={headerStyle}
           bodyStyle={bodyStyle}
-          title="Helpful Details to Include in Your Message"
-          lead="Share your current goal, where leads are dropping off, and any immediate timeline constraints."
+          eyebrow="Education"
+          title="Academic background"
+          lead={null}
           beforeContext={null}
           afterContext={null}
+        />
+        <SplitColumns
+          columns={education.map((item) => ({
+            eyebrow: 'Degree',
+            title: item.degree,
+            paragraphs: [item.institution],
+          }))}
         />
       </section>
 
-      <section className="sample-text LO-22-HdngH5" style={{ marginTop: '1rem' }}>
-        <HeadingMicro
-          headerStyle={headerStyle}
-          bodyStyle={bodyStyle}
-          title="Initial Replies Typically Arrive Within Two Business Days"
-          lead="If the project is urgent, mention that in your first note so prioritization is clear."
-          beforeContext={null}
-          afterContext={null}
-        />
+      <section className="section contact-panel">
+        <div>
+          <p className="eyebrow">Contact</p>
+          <h2>{contact.name}</h2>
+          <address>
+            <span>{contact.location}</span>
+            <a href={contact.phoneHref}>{contact.phone}</a>
+            <a href={contact.emailHref}>{contact.email}</a>
+            <span>{contact.website}</span>
+          </address>
+        </div>
+        <div>
+          <p className="eyebrow">Direct links</p>
+          <div className="contact-actions">
+            <a href={contact.emailHref}>Email Jeffrey <span aria-hidden="true">→</span></a>
+            <a href={contact.phoneHref}>Call Jeffrey <span aria-hidden="true">→</span></a>
+            <a href={resumePdfPath}>Download PDF CV <span aria-hidden="true">→</span></a>
+            <a href="/portfolio">View Portfolio <span aria-hidden="true">→</span></a>
+          </div>
+        </div>
       </section>
+
+      <StandardCentered
+        className="section closing-statement"
+        eyebrow="A conversation"
+        title="I welcome the opportunity to learn more about your work."
+        paragraphs={['I would be glad to discuss how my experience might contribute to your organization.']}
+      />
     </div>
   );
-};
-
-export default Contact;
+}

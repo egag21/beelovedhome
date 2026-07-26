@@ -1,23 +1,12 @@
 import React from 'react';
-import LayoutOptionHeading from './LayoutOptionHeading';
 
-export default function StandardCentered({ headerStyle, bodyStyle }) {
+export default function StandardCentered({ eyebrow, title, paragraphs = [], children, className = '' }) {
   return (
-    <section className="centered-preview">
-      <LayoutOptionHeading
-        headerStyle={headerStyle}
-        bodyStyle={bodyStyle}
-        title="Consulting Built for Practical Outcomes"
-        intro="Use this centered layout for mission statements, value propositions, and concise brand messages."
-      />
-      <p style={bodyStyle}>
-        I partner with founders and small teams to sharpen positioning, simplify site architecture, and increase
-        qualified inbound leads.
-      </p>
-      <p style={bodyStyle}>
-        Every recommendation is tied to measurable outcomes: better clarity, stronger conversion paths, and less
-        wasted effort.
-      </p>
+    <section className={`standard-copy standard-copy--centered ${className}`.trim()}>
+      {eyebrow && <p className="eyebrow">{eyebrow}</p>}
+      {title && <h2>{title}</h2>}
+      {paragraphs.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
+      {children}
     </section>
   );
 }
