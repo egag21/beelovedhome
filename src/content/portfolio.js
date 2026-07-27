@@ -77,6 +77,7 @@ export const grnComparisons = [
 export const editingProjects = {
   developmental: {
     id: 'developmental-editing',
+    number: '02',
     eyebrow: 'Developmental editing · 2026',
     title: 'Strengthening Structure & Message',
     lead: 'Identifying the central theme, restructuring the narrative, adding context, and revising for clarity and impact while preserving the author’s voice.',
@@ -114,6 +115,7 @@ export const editingProjects = {
   },
   line: {
     id: 'line-editing',
+    number: '03',
     eyebrow: 'Line editing · 2025',
     title: 'Improving Clarity & Readability',
     lead: 'Line editing focused on grammar, clarity, readability, flow, and consistency while preserving the writer’s voice and intended message.',
@@ -145,6 +147,7 @@ export const editingProjects = {
 
 export const c2cProject = {
   id: 'c2c-story',
+  number: '04',
   eyebrow: 'Strategic communications · 2019',
   title: 'C2C Story',
   lead: 'Concept development, UX design, website copy, scriptwriting, storyboarding, animation, and video production for a mobile application launch.',

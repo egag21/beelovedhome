@@ -5,8 +5,10 @@ import { grnComparisons, grnSkills } from '../../content/portfolio';
 
 export default function GrnCaseStudy() {
   return (
-    <article className="case-study section" id="grn-map-app">
+    <article className="case-study section project-accent project-accent--grn-map-app" id="grn-map-app">
       <HeadingSection
+        number="01"
+        badge="Featured project"
         eyebrow="Product analysis · UX design · front-end prototyping · technical communication · 2026"
         title="GRN Map App Redesign & Front-End Prototype"
         lead="A 34-page stakeholder proposal translated into a working, responsive front-end prototype for a complex language-resource mapping application."

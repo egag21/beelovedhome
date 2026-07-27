@@ -5,8 +5,12 @@ import LandscapeMediaImage from '../../components/site/LandscapeMediaImage';
 
 export default function EditingCaseStudy({ project }) {
   return (
-    <article className="case-study section" id={project.id}>
+    <article
+      className={`case-study section project-accent project-accent--${project.id}`}
+      id={project.id}
+    >
       <HeadingSection
+        number={project.number}
         eyebrow={project.eyebrow}
         title={project.title}
         lead={project.lead}

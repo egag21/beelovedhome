@@ -4,6 +4,8 @@ export default function HeadingSection({
   headerStyle,
   bodyStyle,
   className = '',
+  number = null,
+  badge = null,
   eyebrow = null,
   title = null,
   lead = null,
@@ -14,6 +16,12 @@ export default function HeadingSection({
 
   return (
     <section className={`heading-layout heading-layout--section ${isTitleOnly ? 'heading-layout--title-only' : ''} ${className}`.trim()}>
+      {(number || badge) && (
+        <div className="project-marker-row">
+          {number && <span className="heading-layout__number" aria-hidden="true">{number}</span>}
+          {badge && <span className="project-featured-label">{badge}</span>}
+        </div>
+      )}
       {eyebrow && <p className="heading-layout__eyebrow" style={bodyStyle}>{eyebrow}</p>}
       {title && <h2 className="heading-layout__title" style={headerStyle}>{title}</h2>}
       {lead && <p className="heading-layout__lead" style={bodyStyle}>{lead}</p>}

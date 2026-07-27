@@ -9,6 +9,8 @@ describe('content integrity', () => {
     expect(new Set(ids).size).toBe(ids.length);
     expect(ids).toContain(editingProjects.developmental.id);
     expect(ids).toContain(editingProjects.line.id);
+    expect(portfolioProjects.every((project) => project.shortTitle)).toBe(true);
+    expect(portfolioProjects.filter((project) => project.featured)).toHaveLength(1);
   });
 
   it('defines metadata for every public route', () => {

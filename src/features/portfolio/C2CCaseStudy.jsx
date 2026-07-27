@@ -5,8 +5,12 @@ import { c2cProject } from '../../content/portfolio';
 
 export default function C2CCaseStudy() {
   return (
-    <article className="case-study section" id={c2cProject.id}>
+    <article
+      className={`case-study section project-accent project-accent--${c2cProject.id}`}
+      id={c2cProject.id}
+    >
       <HeadingSection
+        number={c2cProject.number}
         eyebrow={c2cProject.eyebrow}
         title={c2cProject.title}
         lead={c2cProject.lead}
