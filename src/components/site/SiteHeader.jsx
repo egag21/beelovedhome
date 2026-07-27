@@ -58,7 +58,14 @@ export default function SiteHeader() {
               {item.label}
             </NavLink>
           ))}
-          <a className="header-download" href={resumePdfPath}>Download CV</a>
+          <a
+            className="header-download"
+            href={resumePdfPath}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Download CV
+          </a>
         </nav>
         {menuOpen && (
           <button

@@ -31,7 +31,14 @@ const Header = () => {
           <NavLink to="/portfolio" onClick={() => setMenuOpen(false)} className={({ isActive }) => isActive ? 'nav-link active' : 'nav-link'}>Portfolio</NavLink>
           <NavLink to="/about" onClick={() => setMenuOpen(false)} className={({ isActive }) => isActive ? 'nav-link active' : 'nav-link'}>About</NavLink>
           <NavLink to="/cv-contact" onClick={() => setMenuOpen(false)} className={({ isActive }) => isActive ? 'nav-link active' : 'nav-link'}>CV &amp; Contact</NavLink>
-          <a className="header-download" href={resumePdfPath}>Download CV</a>
+          <a
+            className="header-download"
+            href={resumePdfPath}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Download CV
+          </a>
         </nav>
         {menuOpen && (
           <button

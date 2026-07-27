@@ -18,7 +18,14 @@ export default function CvContactPage() {
           lead={professionalSummary}
         />
         <div className="button-row">
-          <a className="button-link button-link--primary" href={resumePdfPath}>Download PDF CV</a>
+          <a
+            className="button-link button-link--primary"
+            href={resumePdfPath}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Download PDF CV
+          </a>
           <a className="button-link button-link--secondary" href={contact.emailHref}>Email Jeffrey</a>
           <a className="button-link button-link--secondary" href={contact.phoneHref}>Call {contact.phone}</a>
         </div>
@@ -92,7 +99,9 @@ export default function CvContactPage() {
           <div className="contact-actions">
             <a href={contact.emailHref}>Email Jeffrey <span aria-hidden="true">→</span></a>
             <a href={contact.phoneHref}>Call Jeffrey <span aria-hidden="true">→</span></a>
-            <a href={resumePdfPath}>Download PDF CV <span aria-hidden="true">→</span></a>
+            <a href={resumePdfPath} target="_blank" rel="noopener noreferrer">
+              Download PDF CV <span aria-hidden="true">→</span>
+            </a>
             <Link to="/portfolio">View Portfolio <span aria-hidden="true">→</span></Link>
           </div>
         </div>

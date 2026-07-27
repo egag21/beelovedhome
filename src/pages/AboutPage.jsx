@@ -24,7 +24,12 @@ export default function AboutPage() {
           <Link className="button-link button-link--primary" to="/portfolio">
             View my work
           </Link>
-          <a className="button-link button-link--secondary" href={resumePdfPath}>
+          <a
+            className="button-link button-link--secondary"
+            href={resumePdfPath}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             Download my CV
           </a>
         </div>

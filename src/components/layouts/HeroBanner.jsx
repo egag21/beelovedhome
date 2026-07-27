@@ -32,6 +32,8 @@ export default function HeroBanner({
                 className={`button-link ${index === 0 ? 'button-link--primary' : 'button-link--secondary'}`}
                 href={action.href}
                 key={`${action.label}-${action.href}`}
+                target={action.target}
+                rel={action.target === '_blank' ? 'noopener noreferrer' : undefined}
               >
                 {action.label}
               </a>

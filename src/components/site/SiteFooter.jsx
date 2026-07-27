@@ -11,7 +11,7 @@ export default function SiteFooter() {
         <nav aria-label="Footer">
           <a href={contact.emailHref}>{contact.email}</a>
           <a href={contact.phoneHref}>{contact.phone}</a>
-          <a href={resumePdfPath}>Download CV</a>
+          <a href={resumePdfPath} target="_blank" rel="noopener noreferrer">Download CV</a>
         </nav>
         <small>© {new Date().getFullYear()} {contact.name}</small>
       </div>

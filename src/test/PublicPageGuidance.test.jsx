@@ -2,6 +2,8 @@ import { createElement } from 'react';
 import { cleanup, render } from '@testing-library/react';
 import { MemoryRouter } from 'react-router-dom';
 import { afterEach, describe, expect, it } from 'vitest';
+import SiteLayout from '../app/SiteLayout';
+import { resumePdfPath } from '../content/site';
 import AboutPage from '../pages/AboutPage';
 import CvContactPage from '../pages/CvContactPage';
 import HomePage from '../pages/HomePage';
@@ -99,5 +101,26 @@ describe('public page content', () => {
     expect(educationLinks).toHaveLength(2);
     expect(educationLinks[0]).toHaveAttribute('href', 'https://www.fullerton.edu/');
     expect(educationLinks[1]).toHaveAttribute('href', 'https://calvarychapeluniversity.edu/');
+  });
+
+  it('opens every CV PDF link in a new tab', () => {
+    for (const Page of [HomePage, AboutPage, CvContactPage]) {
+      const { container, unmount } = render(
+        <MemoryRouter>
+          <SiteLayout>
+            {createElement(Page)}
+          </SiteLayout>
+        </MemoryRouter>,
+      );
+      const cvLinks = Array.from(container.querySelectorAll(`a[href="${resumePdfPath}"]`));
+
+      expect(cvLinks.length).toBeGreaterThan(0);
+      cvLinks.forEach((link) => {
+        expect(link).toHaveAttribute('target', '_blank');
+        expect(link).toHaveAttribute('rel', 'noopener noreferrer');
+      });
+
+      unmount();
+    }
   });
 });

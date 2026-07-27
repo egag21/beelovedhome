@@ -20,7 +20,7 @@ export default function HomePage() {
           imageAlt=""
           actions={[
             { label: 'View Portfolio', href: '/portfolio' },
-            { label: 'Download CV', href: resumePdfPath },
+            { label: 'Download CV', href: resumePdfPath, target: '_blank' },
           ]}
         />
       </div>

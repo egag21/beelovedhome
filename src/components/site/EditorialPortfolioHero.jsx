@@ -43,7 +43,13 @@ export default function EditorialPortfolioHero({
                   {action.label}
                 </Link>
               ) : (
-                <a className={className} href={action.href} key={`${action.label}-${action.href}`}>
+                <a
+                  className={className}
+                  href={action.href}
+                  key={`${action.label}-${action.href}`}
+                  target={action.target}
+                  rel={action.target === '_blank' ? 'noopener noreferrer' : undefined}
+                >
                   {action.label}
                 </a>
               );
