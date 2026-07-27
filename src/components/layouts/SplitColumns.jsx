@@ -8,7 +8,9 @@ export default function SplitColumns({ columns = [], className = '' }) {
         <article className="split-columns__panel" key={column.title}>
           <p className="eyebrow">{column.eyebrow}</p>
           <h3>{column.title}</h3>
-          {column.paragraphs?.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
+          {column.paragraphs?.map((paragraph, index) => (
+            <p key={typeof paragraph === 'string' ? paragraph : index}>{paragraph}</p>
+          ))}
           {column.items && <FeatureList items={column.items} />}
         </article>
       ))}

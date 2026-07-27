@@ -8,6 +8,7 @@ export default function HeadingSection({
   badge = null,
   eyebrow = null,
   title = null,
+  titleId = null,
   lead = null,
   beforeContext = null,
   afterContext = null,
@@ -23,7 +24,7 @@ export default function HeadingSection({
         </div>
       )}
       {eyebrow && <p className="heading-layout__eyebrow" style={bodyStyle}>{eyebrow}</p>}
-      {title && <h2 className="heading-layout__title" style={headerStyle}>{title}</h2>}
+      {title && <h2 className="heading-layout__title" id={titleId || undefined} style={headerStyle}>{title}</h2>}
       {lead && <p className="heading-layout__lead" style={bodyStyle}>{lead}</p>}
       {beforeContext && (
         <p className="heading-layout__context heading-layout__context--before" style={bodyStyle}>

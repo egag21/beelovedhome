@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Link, NavLink } from 'react-router-dom';
+import { Link, NavLink, useLocation } from 'react-router-dom';
 import logoMark from '../../../120w/JG white 120.png';
 import { resumePdfPath } from '../../content/site';
 import '../Header.css';
@@ -13,6 +13,8 @@ const navigation = [
 
 export default function SiteHeader() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const location = useLocation();
+  const isHome = location.pathname === '/';
 
   useEffect(() => {
     if (!menuOpen) return undefined;
@@ -26,7 +28,7 @@ export default function SiteHeader() {
   }, [menuOpen]);
 
   return (
-    <header className="site-header">
+    <header className={`site-header${isHome ? ' site-header--home' : ''}`}>
       <div className="header-container">
         <p className="logo">
           <Link to="/" className="logo-link">

@@ -147,10 +147,12 @@ export const education = [
   {
     degree: 'BA, English',
     institution: 'California State University, Fullerton',
+    institutionUrl: 'https://www.fullerton.edu/',
   },
   {
     degree: 'BA, Biblical Studies',
     institution: 'Calvary Chapel Bible College, Twin Peaks, California',
+    institutionUrl: 'https://calvarychapeluniversity.edu/',
   },
 ];
 

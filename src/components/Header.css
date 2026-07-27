@@ -3,11 +3,16 @@
   top: 0;
   z-index: 100;
   width: 100%;
-  background: rgba(24, 18, 48, 0.96);
+  background: var(--brand-gradient);
   color: #fff;
   box-shadow: 0 1px 0 rgba(255, 255, 255, 0.12);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
+}
+
+.site-header--home {
+  background: var(--navy);
+  box-shadow: none;
 }
 
 .header-container {

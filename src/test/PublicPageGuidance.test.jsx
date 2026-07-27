@@ -44,7 +44,7 @@ describe('public page content', () => {
     });
   }
 
-  it('pairs each portfolio jump link with its numbered, color-keyed case study', () => {
+  it('pairs each portfolio jump link with its closed, color-keyed case study', () => {
     const { container } = render(
       <MemoryRouter>
         <PortfolioPage />
@@ -57,22 +57,47 @@ describe('public page content', () => {
     links.forEach((link, index) => {
       const projectId = link.getAttribute('href').slice(1);
       const destination = container.querySelector(`#${projectId}`);
-      const overviewCard = container.querySelector(`#index-${projectId}`);
       const number = String(index + 1).padStart(2, '0');
 
       expect(link.querySelector('.jump-nav__number')).toHaveTextContent(number);
       expect(link).toHaveClass(`project-accent--${projectId}`);
-      expect(overviewCard).toHaveClass(`project-accent--${projectId}`);
-      expect(overviewCard.querySelector('.content-card__number')).toHaveTextContent(number);
       expect(destination.querySelector('.heading-layout__number')).toHaveTextContent(number);
+      expect(destination.querySelector('.project-accordion__trigger')).toHaveAttribute(
+        'aria-expanded',
+        'false',
+      );
       expect(destination).toHaveClass(`project-accent--${projectId}`);
     });
 
-    expect(container.querySelector('#index-grn-map-app .project-featured-label')).toHaveTextContent(
-      'Featured project',
-    );
+    expect(container.querySelector('.portfolio-overview-grid')).not.toBeInTheDocument();
     expect(container.querySelector('#grn-map-app .project-featured-label')).toHaveTextContent(
       'Featured project',
     );
+  });
+
+  it('links both schools from the About page', () => {
+    const { container } = render(
+      <MemoryRouter>
+        <AboutPage />
+      </MemoryRouter>,
+    );
+    const educationLinks = Array.from(container.querySelectorAll('.education-link'));
+
+    expect(educationLinks).toHaveLength(2);
+    expect(educationLinks[0]).toHaveAttribute('href', 'https://www.fullerton.edu/');
+    expect(educationLinks[1]).toHaveAttribute('href', 'https://calvarychapeluniversity.edu/');
+  });
+
+  it('links both schools from the CV page', () => {
+    const { container } = render(
+      <MemoryRouter>
+        <CvContactPage />
+      </MemoryRouter>,
+    );
+    const educationLinks = Array.from(container.querySelectorAll('.education-link'));
+
+    expect(educationLinks).toHaveLength(2);
+    expect(educationLinks[0]).toHaveAttribute('href', 'https://www.fullerton.edu/');
+    expect(educationLinks[1]).toHaveAttribute('href', 'https://calvarychapeluniversity.edu/');
   });
 });

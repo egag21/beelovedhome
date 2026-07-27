@@ -61,7 +61,17 @@ export default function CvContactPage() {
           columns={education.map((item) => ({
             eyebrow: 'Degree',
             title: item.degree,
-            paragraphs: [item.institution],
+            paragraphs: [
+              <a
+                className="education-link"
+                href={item.institutionUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {item.institution}
+                <span className="visually-hidden"> (opens in a new tab)</span>
+              </a>,
+            ],
           }))}
         />
       </section>

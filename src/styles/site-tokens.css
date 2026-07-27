@@ -6,7 +6,9 @@
   --line: #ddd7e8;
   --violet: #5f2b83;
   --violet-dark: #35184c;
+  --navy: #0c1329;
   --indigo: #283b91;
+  --brand-gradient: linear-gradient(135deg, var(--navy), var(--indigo));
   --cyan: #7fc6d7;
   --gold: #d9ad5b;
   --shadow: 0 18px 50px rgba(38, 24, 61, 0.1);

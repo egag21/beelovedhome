@@ -1,20 +1,20 @@
 import FeatureList from '../../components/layouts/FeatureList';
-import HeadingSection from '../../components/layouts/HeadingSection';
 import LandscapeMediaImage from '../../components/site/LandscapeMediaImage';
+import ProjectAccordion from '../../components/site/ProjectAccordion';
 import { c2cProject } from '../../content/portfolio';
 
 export default function C2CCaseStudy() {
   return (
-    <article
-      className={`case-study section project-accent project-accent--${c2cProject.id}`}
+    <ProjectAccordion
       id={c2cProject.id}
+      accentClass={`project-accent--${c2cProject.id}`}
+      heading={{
+        number: c2cProject.number,
+        eyebrow: c2cProject.eyebrow,
+        title: c2cProject.title,
+        lead: c2cProject.lead,
+      }}
     >
-      <HeadingSection
-        number={c2cProject.number}
-        eyebrow={c2cProject.eyebrow}
-        title={c2cProject.title}
-        lead={c2cProject.lead}
-      />
       <div className="media-text">
         <div className="standard-copy">
           <h3>Campaign approach</h3>
@@ -46,6 +46,6 @@ export default function C2CCaseStudy() {
           aspectRatio="4 / 3"
         />
       </div>
-    </article>
+    </ProjectAccordion>
   );
 }

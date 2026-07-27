@@ -99,9 +99,8 @@ export default function AboutJeff() {
           <p className="eyebrow">International collaboration</p>
           <h2>Eleven years living and working in Germany</h2>
           <p>
-            Work with Greater Europe Mission and LightSys Technology Services involved developing digital
-            products and communications for diverse audiences while collaborating with distributed teams and
-            organizational partners.
+            Work with Greater Europe Mission involved developing digital products and communications for
+            diverse audiences while collaborating with distributed teams and organizational partners.
           </p>
         </div>
         <figure className="supporting-visual">
@@ -127,7 +126,17 @@ export default function AboutJeff() {
           columns={education.map((item) => ({
             eyebrow: 'Bachelor of Arts',
             title: item.degree.replace('BA, ', ''),
-            paragraphs: [item.institution],
+            paragraphs: [
+              <a
+                className="education-link"
+                href={item.institutionUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {item.institution}
+                <span className="visually-hidden"> (opens in a new tab)</span>
+              </a>,
+            ],
           }))}
         />
       </section>

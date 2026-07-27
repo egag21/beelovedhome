@@ -1,18 +1,21 @@
 import FeatureList from '../../components/layouts/FeatureList';
-import HeadingSection from '../../components/layouts/HeadingSection';
 import PortfolioComparison from '../../components/site/PortfolioComparison';
+import ProjectAccordion from '../../components/site/ProjectAccordion';
 import { grnComparisons, grnSkills } from '../../content/portfolio';
 
 export default function GrnCaseStudy() {
   return (
-    <article className="case-study section project-accent project-accent--grn-map-app" id="grn-map-app">
-      <HeadingSection
-        number="01"
-        badge="Featured project"
-        eyebrow="Product analysis · UX design · front-end prototyping · technical communication · 2026"
-        title="GRN Map App Redesign & Front-End Prototype"
-        lead="A 34-page stakeholder proposal translated into a working, responsive front-end prototype for a complex language-resource mapping application."
-      />
+    <ProjectAccordion
+      id="grn-map-app"
+      accentClass="project-accent--grn-map-app"
+      heading={{
+        number: '01',
+        badge: 'Featured project',
+        eyebrow: 'Product analysis · UX design · front-end prototyping · technical communication · 2026',
+        title: 'GRN Map App Redesign & Front-End Prototype',
+        lead: 'A 34-page stakeholder proposal translated into a working, responsive front-end prototype for a complex language-resource mapping application.',
+      }}
+    >
       <div className="case-summary-grid case-summary-grid--single">
         <div className="standard-copy">
           <h3>The challenge</h3>
@@ -53,6 +56,6 @@ export default function GrnCaseStudy() {
         <h3>Skills demonstrated</h3>
         <FeatureList items={grnSkills} className="check-list--columns" />
       </div>
-    </article>
+    </ProjectAccordion>
   );
 }

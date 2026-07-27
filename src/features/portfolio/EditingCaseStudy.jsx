@@ -1,20 +1,20 @@
 import FeatureList from '../../components/layouts/FeatureList';
-import HeadingSection from '../../components/layouts/HeadingSection';
 import SplitColumns from '../../components/layouts/SplitColumns';
 import LandscapeMediaImage from '../../components/site/LandscapeMediaImage';
+import ProjectAccordion from '../../components/site/ProjectAccordion';
 
 export default function EditingCaseStudy({ project }) {
   return (
-    <article
-      className={`case-study section project-accent project-accent--${project.id}`}
+    <ProjectAccordion
       id={project.id}
+      accentClass={`project-accent--${project.id}`}
+      heading={{
+        number: project.number,
+        eyebrow: project.eyebrow,
+        title: project.title,
+        lead: project.lead,
+      }}
     >
-      <HeadingSection
-        number={project.number}
-        eyebrow={project.eyebrow}
-        title={project.title}
-        lead={project.lead}
-      />
       {project.image && (
         <div className="media-text media-text--prompt">
           <LandscapeMediaImage
@@ -34,6 +34,6 @@ export default function EditingCaseStudy({ project }) {
         <h3>Editorial decisions</h3>
         <FeatureList items={project.decisions} className="check-list--columns" />
       </div>
-    </article>
+    </ProjectAccordion>
   );
 }

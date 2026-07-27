@@ -1,5 +1,4 @@
 import { useEffect, useRef, useState } from 'react';
-import CardsGrid from '../components/layouts/CardsGrid';
 import HeadingDisplay from '../components/layouts/HeadingDisplay';
 import C2CCaseStudy from '../features/portfolio/C2CCaseStudy';
 import EditingCaseStudy from '../features/portfolio/EditingCaseStudy';
@@ -57,18 +56,6 @@ export default function PortfolioPage() {
     };
   }, []);
 
-  const projectCards = portfolioProjects.map((project, index) => ({
-    id: `index-${project.id}`,
-    className: `project-accent project-accent--${project.id}`,
-    number: String(index + 1).padStart(2, '0'),
-    badge: project.featured ? 'Featured project' : null,
-    eyebrow: `${project.cardDiscipline || project.discipline} · ${project.year}`,
-    title: project.title,
-    body: project.challenge,
-    href: `#${project.id}`,
-    linkLabel: 'View case study',
-  }));
-
   return (
     <div className="resume-page">
       <section className="page-intro portfolio-intro">
@@ -107,10 +94,6 @@ export default function PortfolioPage() {
           ))}
         </nav>
       </div>
-
-      <section className="section section--compact" aria-label="Portfolio overview">
-        <CardsGrid cards={projectCards} className="portfolio-overview-grid" />
-      </section>
 
       <GrnCaseStudy />
       <EditingCaseStudy project={editingProjects.developmental} />
