@@ -1,0 +1,15 @@
+{
+  "name": "Jeffrey Gage",
+  "short_name": "Jeffrey Gage",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#fbfafc",
+  "theme_color": "#35184c",
+  "icons": [
+    {
+      "src": "/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

@@ -301,15 +301,60 @@ const WorkInProgress = () => {
                 case 'LO-25-TextImg':
                   return <TextImage headerStyle={headerStyle} bodyStyle={bodyStyle} />;
                 case 'LO-18-HdngH1':
-                  return <HeadingDisplay headerStyle={headerStyle} bodyStyle={bodyStyle} />;
+                  return (
+                    <HeadingDisplay
+                      headerStyle={headerStyle}
+                      bodyStyle={bodyStyle}
+                      title="Strategic Website Consulting That Moves Clients to Action"
+                      lead="This H1-style block is designed for page-open context with enough presence and breathing room to anchor the rest of your section stack."
+                      beforeContext="Typical content before: top navigation or a compact trust ribbon."
+                      afterContext="Typical content after: hero body copy, CTA row, or a two-column value proposition."
+                    />
+                  );
                 case 'LO-19-HdngH2':
-                  return <HeadingSection headerStyle={headerStyle} bodyStyle={bodyStyle} />;
+                  return (
+                    <HeadingSection
+                      headerStyle={headerStyle}
+                      bodyStyle={bodyStyle}
+                      title="What We Improve in Your Site Architecture"
+                      lead="Use this as a robust H2 between major layout blocks. It gives enough structure for readers scanning long pages without overwhelming adjacent sections."
+                      beforeContext="Typical content before: testimonial cards, feature grid, or proof points."
+                      afterContext="Typical content after: bullets, comparison table, FAQ, or scoped call to action."
+                    />
+                  );
                 case 'LO-20-HdngH3':
-                  return <HeadingSubsection headerStyle={headerStyle} bodyStyle={bodyStyle} />;
+                  return (
+                    <HeadingSubsection
+                      headerStyle={headerStyle}
+                      bodyStyle={bodyStyle}
+                      title="Messaging Refinement for Better Lead Quality"
+                      lead="This H3-style block is tuned for subsection transitions inside longer pages, with tighter vertical rhythm so it can repeat without creating visual drag."
+                      beforeContext="Typical content before: parent H2 section intro or short divider."
+                      afterContext="Typical content after: one to three paragraphs, compact list, or paired media tile."
+                    />
+                  );
                 case 'LO-21-HdngH4':
-                  return <HeadingDetail headerStyle={headerStyle} bodyStyle={bodyStyle} />;
+                  return (
+                    <HeadingDetail
+                      headerStyle={headerStyle}
+                      bodyStyle={bodyStyle}
+                      title="Implementation Priorities and Sequence"
+                      lead="Use this H4-style block to introduce a detailed subsection before specific lists, cards, or tactical guidance."
+                      beforeContext="Typical content before: a broader H3 section framing the theme."
+                      afterContext="Typical content after: grouped bullets, process notes, or scoped deliverables."
+                    />
+                  );
                 case 'LO-22-HdngH5':
-                  return <HeadingMicro headerStyle={headerStyle} bodyStyle={bodyStyle} />;
+                  return (
+                    <HeadingMicro
+                      headerStyle={headerStyle}
+                      bodyStyle={bodyStyle}
+                      title="Quick Context Before Details"
+                      lead="Use this H5-style block for compact transitions when a full subsection heading would be too heavy."
+                      beforeContext="Typical content before: a detail heading or short explanatory paragraph."
+                      afterContext="Typical content after: FAQs, compact notes, or small supporting lists."
+                    />
+                  );
                 case 'LO-23-CtlgCard':
                   return <CatalogCard headerStyle={headerStyle} bodyStyle={bodyStyle} />;
                 default:

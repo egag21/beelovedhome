@@ -1,0 +1,38 @@
+.component-catalog {
+  width: min(1120px, calc(100% - 2rem));
+  margin: 0 auto;
+  padding: 3rem 0 6rem;
+}
+
+.component-catalog > section {
+  margin-top: 4rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--line);
+}
+
+.component-catalog__intro {
+  max-width: 70ch;
+}
+
+.component-catalog__intro nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.component-catalog__intro a {
+  color: var(--violet);
+  font-weight: 800;
+}
+
+.component-catalog__image {
+  max-width: 42rem;
+}
+
+.component-catalog__image img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: var(--radius);
+}

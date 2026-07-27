@@ -118,7 +118,7 @@ const Home = () => {
           bodyStyle={bodyStyle}
           eyebrow="Evidence at a glance"
           title="Experience measured in real work"
-          lead="Each proof point comes directly from the current CV."
+          lead="A few measures of the scope, longevity, and impact of my work."
           beforeContext={null}
           afterContext={null}
         />
@@ -130,7 +130,7 @@ const Home = () => {
       <section className="section closing-panel">
         <p className="eyebrow">Next step</p>
         <h2>Looking for someone who can bring clarity to complex work?</h2>
-        <p>Review the complete CV or get in touch to discuss how this experience could contribute to your organization.</p>
+        <p>Explore the full breadth of my experience or get in touch to discuss how I could contribute to your organization.</p>
         <div className="button-row">
           <a className="button-link button-link--primary" href="/cv-contact">View CV & Contact</a>
           <a className="button-link button-link--secondary" href={contact.emailHref}>Email Jeffrey</a>

@@ -87,7 +87,7 @@ export default function AboutJeff() {
           bodyStyle={bodyStyle}
           eyebrow="Working approach"
           title="Audience-centered, collaborative, and practical"
-          lead="The PDF describes a consistent way of working across editorial, technical, and product contexts."
+          lead="I connect audience needs, organizational goals, and practical constraints to shape clear, workable solutions."
           beforeContext={null}
           afterContext={null}
         />

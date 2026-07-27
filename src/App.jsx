@@ -1,12 +1,11 @@
 import React, { useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
-import Header from './components/Header';
-import Home from './components/Home';
-import AboutJeff from './components/AboutJeff';
-import PastWork from './components/PastWork';
-import Contact from './components/Contact';
-import Footer from './components/Footer';
-import RouteEffects from './components/RouteEffects';
+import SiteLayout from './app/SiteLayout';
+import AboutPage from './pages/AboutPage';
+import CvContactPage from './pages/CvContactPage';
+import HomePage from './pages/HomePage';
+import NotFoundPage from './pages/NotFoundPage';
+import PortfolioPage from './pages/PortfolioPage';
 import './App.css';
 import './ResumeSite.css';
 
@@ -17,21 +16,16 @@ function App() {
 
   return (
     <Router>
-      <div className="App">
-        <RouteEffects />
-        <Header />
-        <main className="site-main">
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/home" element={<Navigate to="/" replace />} />
-            <Route path="/portfolio" element={<PastWork />} />
-            <Route path="/about" element={<AboutJeff />} />
-            <Route path="/cv-contact" element={<Contact />} />
-            <Route path="*" element={<Navigate to="/" replace />} />
-          </Routes>
-        </main>
-        <Footer />
-      </div>
+      <SiteLayout>
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/home" element={<Navigate to="/" replace />} />
+          <Route path="/portfolio" element={<PortfolioPage />} />
+          <Route path="/about" element={<AboutPage />} />
+          <Route path="/cv-contact" element={<CvContactPage />} />
+          <Route path="*" element={<NotFoundPage />} />
+        </Routes>
+      </SiteLayout>
     </Router>
   );
 }

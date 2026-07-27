@@ -36,7 +36,7 @@ export default function CvContact() {
           bodyStyle={bodyStyle}
           eyebrow="Core competencies"
           title="Editorial, leadership, technology, and data"
-          lead="The complete competency groups from the current CV."
+          lead="A broad skill set spanning editorial leadership, technical communication, product design, and implementation."
           beforeContext={null}
           afterContext={null}
         />
@@ -55,7 +55,7 @@ export default function CvContact() {
           bodyStyle={bodyStyle}
           eyebrow="Professional experience"
           title="Experience from 1998 to the present"
-          lead="Expand each role to read the complete source-backed CV details."
+          lead="Explore the responsibilities, outcomes, and contributions that shaped each role."
           beforeContext={null}
           afterContext={null}
         />

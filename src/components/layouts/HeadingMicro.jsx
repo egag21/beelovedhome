@@ -5,10 +5,10 @@ export default function HeadingMicro({
   bodyStyle,
   className = '',
   eyebrow = null,
-  title = 'Quick Context Before Details',
-  lead = 'Use this H5-style block for compact transitions when a full subsection heading would be too heavy.',
-  beforeContext = 'Typical content before: a detail heading or short explanatory paragraph.',
-  afterContext = 'Typical content after: FAQs, compact notes, or small supporting lists.',
+  title = null,
+  lead = null,
+  beforeContext = null,
+  afterContext = null,
 }) {
   const isTitleOnly = !lead;
 

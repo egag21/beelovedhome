@@ -5,10 +5,10 @@ export default function HeadingSection({
   bodyStyle,
   className = '',
   eyebrow = null,
-  title = 'What We Improve in Your Site Architecture',
-  lead = 'Use this as a robust H2 between major layout blocks. It gives enough structure for readers scanning long pages without overwhelming adjacent sections.',
-  beforeContext = 'Typical content before: testimonial cards, feature grid, or proof points.',
-  afterContext = 'Typical content after: bullets, comparison table, FAQ, or scoped call to action.',
+  title = null,
+  lead = null,
+  beforeContext = null,
+  afterContext = null,
 }) {
   const isTitleOnly = !lead;
 

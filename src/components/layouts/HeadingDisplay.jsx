@@ -5,10 +5,10 @@ export default function HeadingDisplay({
   bodyStyle,
   className = '',
   eyebrow = null,
-  title = 'Strategic Website Consulting That Moves Clients to Action',
-  lead = 'This H1-style block is designed for page-open context with enough presence and breathing room to anchor the rest of your section stack.',
-  beforeContext = 'Typical content before: top navigation or a compact trust ribbon.',
-  afterContext = 'Typical content after: hero body copy, CTA row, or a two-column value proposition.',
+  title = null,
+  lead = null,
+  beforeContext = null,
+  afterContext = null,
 }) {
   const isTitleOnly = !lead;
 
