@@ -128,6 +128,20 @@ export default function AboutPage() {
           }))}
         />
       </section>
+
+      <section className="section">
+        <HeadingSection
+          eyebrow="Personal"
+          title="Outside of work"
+        />
+        <div className="standard-copy">
+          <p>
+            When I’m not working, I enjoy teaching others to play board games, listening to fantasy
+            audiobooks, and playing Minecraft on my personal server. After eleven years in Germany,
+            I’m also enjoying reacquainting myself with life in the United States and building new friendships.
+          </p>
+        </div>
+      </section>
     </div>
   );
 }
