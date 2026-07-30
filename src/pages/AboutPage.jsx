@@ -98,10 +98,10 @@ export default function AboutPage() {
           </p>
         </div>
         <LandscapeMediaImage
-          src="/images/optimized/international-768.jpg"
+          src="/images/Kandern.jpg"
           alt=""
-          width="1536"
-          height="1024"
+          width="960"
+          height="720"
         />
       </section>
 
@@ -129,17 +129,37 @@ export default function AboutPage() {
         />
       </section>
 
-      <section className="section">
-        <HeadingSection
-          eyebrow="Personal"
-          title="Outside of work"
-        />
-        <div className="standard-copy">
-          <p>
-            When I’m not working, I enjoy teaching others to play board games, listening to fantasy
-            audiobooks, and playing Minecraft on my personal server. After eleven years in Germany,
-            I’m also enjoying reacquainting myself with life in the United States and building new friendships.
-          </p>
+      <section className="section personal-life">
+        <div className="personal-life__stage">
+          <figure className="personal-life__image">
+            <img
+              src="/images/optimized/complex-1600.jpg"
+              srcSet="/images/optimized/complex-960.jpg 960w, /images/optimized/complex-1600.jpg 1600w"
+              sizes="(max-width: 820px) calc(100vw - 2rem), 1120px"
+              alt="A sprawling Weather Machine board game in progress, filled with colorful pieces, gears, tiles, and player boards"
+              width="1600"
+              height="1200"
+              loading="lazy"
+              decoding="async"
+            />
+          </figure>
+          <div className="personal-life__card">
+            <p className="eyebrow">Personal</p>
+            <h2>Outside of work</h2>
+            <p className="personal-life__lead">
+              Complex systems are even more fun around a table.
+            </p>
+            <p>
+              When I’m not working, I enjoy teaching others to play board games, listening to fantasy
+              audiobooks, and playing Minecraft on my personal server. After eleven years in Germany,
+              I’m also enjoying reacquainting myself with life in the United States and building new friendships.
+            </p>
+            <ul className="personal-life__interests" aria-label="Personal interests">
+              <li>Board games</li>
+              <li>Fantasy novels</li>
+              <li>Minecraft builds</li>
+            </ul>
+          </div>
         </div>
       </section>
     </div>
