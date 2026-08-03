@@ -15,7 +15,7 @@ export default function AboutPage() {
       <section className="page-intro page-intro--no-divider">
         <HeadingDisplay
           eyebrow="About"
-          title="I enjoy bringing clarity to complexity."
+          title="I enjoy bringing clarity to complexity"
           lead="My career has developed at the intersection of communications, technology, and publishing."
           beforeContext={null}
           afterContext={null}
