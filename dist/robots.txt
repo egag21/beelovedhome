@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://jeffgage.net/sitemap.xml
+Sitemap: https://beelovedhome.com/sitemap.xml

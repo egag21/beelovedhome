@@ -21,7 +21,7 @@
   padding: 0.75rem 1rem;
   border-radius: 0.35rem;
   background: #fff;
-  color: #35184c;
+  color: var(--forest);
   font-weight: 700;
   transform: translateY(-200%);
 }

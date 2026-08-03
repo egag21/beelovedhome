@@ -1,15 +1,15 @@
 {
-  "name": "Jeffrey Gage",
-  "short_name": "Jeffrey Gage",
+  "name": "Bee Loved Home",
+  "short_name": "Bee Loved",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#fbfafc",
-  "theme_color": "#35184c",
+  "background_color": "#f7f1e3",
+  "theme_color": "#f7f1e3",
   "icons": [
     {
-      "src": "/icon-512.png",
-      "sizes": "512x512",
-      "type": "image/png"
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
     }
   ]
 }

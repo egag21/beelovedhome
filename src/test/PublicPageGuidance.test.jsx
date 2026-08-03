@@ -1,126 +1,38 @@
-import { createElement } from 'react';
-import { cleanup, render } from '@testing-library/react';
+import { cleanup, render, screen } from '@testing-library/react';
 import { MemoryRouter } from 'react-router-dom';
 import { afterEach, describe, expect, it } from 'vitest';
-import SiteLayout from '../app/SiteLayout';
-import { resumePdfPath } from '../content/site';
-import AboutPage from '../pages/AboutPage';
-import CvContactPage from '../pages/CvContactPage';
 import HomePage from '../pages/HomePage';
 import NotFoundPage from '../pages/NotFoundPage';
-import PortfolioPage from '../pages/PortfolioPage';
-
-const publicPages = [
-  ['home', HomePage],
-  ['portfolio', PortfolioPage],
-  ['about', AboutPage],
-  ['CV and contact', CvContactPage],
-  ['not found', NotFoundPage],
-];
-
-const unsupportedFramingPatterns = [
-  /Typical content (before|after)/i,
-  /This H[1-6]-style block/i,
-  /Use this H[1-6]-style block/i,
-  /Use this as a robust H2/i,
-  /The PDF describes/i,
-  /from the current CV/i,
-  /source-backed CV details/i,
-  /comes directly from the current CV/i,
-];
 
 afterEach(cleanup);
 
-describe('public page content', () => {
-  for (const [name, Page] of publicPages) {
-    it(`does not render component-library guidance on the ${name} page`, () => {
-      const { container } = render(
-        <MemoryRouter>
-          {createElement(Page)}
-        </MemoryRouter>,
-      );
+describe('Bee Loved Home public content', () => {
+  it('introduces the sourdough wrap and Carrie', () => {
+    render(<HomePage />);
 
-      for (const pattern of unsupportedFramingPatterns) {
-        expect(container).not.toHaveTextContent(pattern);
-      }
-    });
-  }
-
-  it('pairs each portfolio jump link with its closed, color-keyed case study', () => {
-    const { container } = render(
-      <MemoryRouter>
-        <PortfolioPage />
-      </MemoryRouter>,
-    );
-    const links = Array.from(container.querySelectorAll('.portfolio-jump a'));
-
-    expect(links).toHaveLength(4);
-
-    links.forEach((link, index) => {
-      const projectId = link.getAttribute('href').slice(1);
-      const destination = container.querySelector(`#${projectId}`);
-      const number = String(index + 1).padStart(2, '0');
-
-      expect(link.querySelector('.jump-nav__number')).toHaveTextContent(number);
-      expect(link).toHaveClass(`project-accent--${projectId}`);
-      expect(destination.querySelector('.heading-layout__number')).toHaveTextContent(number);
-      expect(destination.querySelector('.project-accordion__trigger')).toHaveAttribute(
-        'aria-expanded',
-        'false',
-      );
-      expect(destination).toHaveClass(`project-accent--${projectId}`);
-    });
-
-    expect(container.querySelector('.portfolio-overview-grid')).not.toBeInTheDocument();
-    expect(container.querySelector('#grn-map-app .project-featured-label')).toHaveTextContent(
-      'Featured project',
-    );
+    expect(screen.getByRole('heading', { level: 1 })).toHaveTextContent('Keep good breadgood longer');
+    expect(screen.getByText(/Small-batch beeswax wraps made by Carrie/i)).toBeInTheDocument();
+    expect(screen.getByRole('heading', { name: 'The Loaf Hug' })).toBeInTheDocument();
   });
 
-  it('links both schools from the About page', () => {
-    const { container } = render(
-      <MemoryRouter>
-        <AboutPage />
-      </MemoryRouter>,
-    );
-    const educationLinks = Array.from(container.querySelectorAll('.education-link'));
+  it('publishes the recurring Monument market information', () => {
+    render(<HomePage />);
 
-    expect(educationLinks).toHaveLength(2);
-    expect(educationLinks[0]).toHaveAttribute('href', 'https://www.fullerton.edu/');
-    expect(educationLinks[1]).toHaveAttribute('href', 'https://calvarychapeluniversity.edu/');
+    expect(screen.getByText(/farmers market in Monument, Colorado, every Saturday/i)).toBeInTheDocument();
+    expect(screen.getByRole('link', { name: 'Find us this Saturday' })).toHaveAttribute('href', '#find-us');
   });
 
-  it('links both schools from the CV page', () => {
-    const { container } = render(
-      <MemoryRouter>
-        <CvContactPage />
-      </MemoryRouter>,
-    );
-    const educationLinks = Array.from(container.querySelectorAll('.education-link'));
+  it('includes accessible wrap-care and FAQ content', () => {
+    render(<HomePage />);
 
-    expect(educationLinks).toHaveLength(2);
-    expect(educationLinks[0]).toHaveAttribute('href', 'https://www.fullerton.edu/');
-    expect(educationLinks[1]).toHaveAttribute('href', 'https://calvarychapeluniversity.edu/');
+    expect(screen.getByRole('heading', { name: /Cool water\.\s*Kind hands\./ })).toBeInTheDocument();
+    expect(screen.getByText(/No hot water, microwave, dishwasher/i)).toBeInTheDocument();
+    expect(screen.getByText('How long will a wrap last?')).toBeInTheDocument();
   });
 
-  it('opens every CV PDF link in a new tab', () => {
-    for (const Page of [HomePage, AboutPage, CvContactPage]) {
-      const { container, unmount } = render(
-        <MemoryRouter>
-          <SiteLayout>
-            {createElement(Page)}
-          </SiteLayout>
-        </MemoryRouter>,
-      );
-      const cvLinks = Array.from(container.querySelectorAll(`a[href="${resumePdfPath}"]`));
+  it('offers a clear route home from the not-found page', () => {
+    render(<MemoryRouter><NotFoundPage /></MemoryRouter>);
 
-      expect(cvLinks.length).toBeGreaterThan(0);
-      cvLinks.forEach((link) => {
-        expect(link).toHaveAttribute('target', '_blank');
-        expect(link).toHaveAttribute('rel', 'noopener noreferrer');
-      });
-
-      unmount();
-    }
+    expect(screen.getByRole('link', { name: 'Return to Bee Loved Home' })).toHaveAttribute('href', '/');
   });
 });

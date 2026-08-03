@@ -1,21 +1,11 @@
 import { describe, expect, it } from 'vitest';
-import { editingProjects, portfolioProjects } from '../content/portfolio';
-import { routeMeta } from '../content/site';
+import { routeMeta, siteMeta } from '../content/site';
 
 describe('content integrity', () => {
-  it('keeps portfolio IDs unique and aligned with editing projects', () => {
-    const ids = portfolioProjects.map((project) => project.id);
-
-    expect(new Set(ids).size).toBe(ids.length);
-    expect(ids).toContain(editingProjects.developmental.id);
-    expect(ids).toContain(editingProjects.line.id);
-    expect(portfolioProjects.every((project) => project.shortTitle)).toBe(true);
-    expect(portfolioProjects.filter((project) => project.featured)).toHaveLength(1);
-  });
-
-  it('defines metadata for every public route', () => {
-    expect(Object.keys(routeMeta)).toEqual(
-      expect.arrayContaining(['/', '/portfolio', '/about', '/cv-contact', 'notFound']),
-    );
+  it('defines Bee Loved Home metadata for the public site', () => {
+    expect(siteMeta.siteName).toBe('Bee Loved Home');
+    expect(siteMeta.siteUrl).toBe('https://beelovedhome.com');
+    expect(siteMeta.socialImage).toBe('/images/bee-loved-wraps.png');
+    expect(Object.keys(routeMeta)).toEqual(['/', 'notFound']);
   });
 });

@@ -1,45 +1,35 @@
 import { useEffect, useState } from 'react';
-import { Link, NavLink, useLocation } from 'react-router-dom';
-import logoMark from '../../../120w/JG white 120.png';
-import { resumePdfPath } from '../../content/site';
+import { Link } from 'react-router-dom';
 import '../Header.css';
 
 const navigation = [
-  { to: '/', label: 'Home', end: true },
-  { to: '/portfolio', label: 'Portfolio' },
-  { to: '/about', label: 'About' },
-  { to: '/cv-contact', label: 'CV & Contact' },
+  { href: '#wraps', label: 'Our wraps' },
+  { href: '#story', label: 'Our story' },
+  { href: '#care', label: 'Wrap care' },
 ];
 
 export default function SiteHeader() {
   const [menuOpen, setMenuOpen] = useState(false);
-  const location = useLocation();
-  const isHome = location.pathname === '/';
 
   useEffect(() => {
-    if (!menuOpen) return undefined;
-
-    const closeOnEscape = (event) => {
-      if (event.key === 'Escape') setMenuOpen(false);
-    };
-
+    const closeOnEscape = (event) => event.key === 'Escape' && setMenuOpen(false);
     document.addEventListener('keydown', closeOnEscape);
     return () => document.removeEventListener('keydown', closeOnEscape);
-  }, [menuOpen]);
+  }, []);
 
   return (
-    <header className={`site-header${isHome ? ' site-header--home' : ''}`}>
+    <header className="site-header">
       <div className="header-container">
         <p className="logo">
-          <Link to="/" className="logo-link">
-            <img src={logoMark} alt="" className="logo-mark" aria-hidden="true" />
-            <span>Jeffrey Gage</span>
+          <Link to="/" className="logo-link" aria-label="Bee Loved Home, home">
+            <span className="logo-mark" aria-hidden="true">♥</span>
+            <span className="logo-words"><strong>BEE LOVED</strong><small>HOME</small></span>
           </Link>
         </p>
         <button
           className={`menu-toggle ${menuOpen ? 'is-open' : ''}`}
           type="button"
-          onClick={() => setMenuOpen((current) => !current)}
+          onClick={() => setMenuOpen((open) => !open)}
           aria-label={menuOpen ? 'Close menu' : 'Open menu'}
           aria-expanded={menuOpen}
           aria-controls="site-nav"
@@ -48,33 +38,11 @@ export default function SiteHeader() {
         </button>
         <nav id="site-nav" className={`nav ${menuOpen ? 'open' : ''}`} aria-label="Primary">
           {navigation.map((item) => (
-            <NavLink
-              to={item.to}
-              end={item.end}
-              key={item.to}
-              onClick={() => setMenuOpen(false)}
-              className={({ isActive }) => (isActive ? 'nav-link active' : 'nav-link')}
-            >
-              {item.label}
-            </NavLink>
+            <a className="nav-link" href={item.href} key={item.href} onClick={() => setMenuOpen(false)}>{item.label}</a>
           ))}
-          <a
-            className="header-download"
-            href={resumePdfPath}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Download CV
-          </a>
+          <a className="header-download" href="#find-us" onClick={() => setMenuOpen(false)}>Find us</a>
         </nav>
-        {menuOpen && (
-          <button
-            type="button"
-            className="menu-backdrop"
-            aria-label="Close menu"
-            onClick={() => setMenuOpen(false)}
-          />
-        )}
+        {menuOpen && <button type="button" className="menu-backdrop" aria-label="Close menu" onClick={() => setMenuOpen(false)} />}
       </div>
     </header>
   );

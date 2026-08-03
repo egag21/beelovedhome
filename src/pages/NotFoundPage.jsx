@@ -2,13 +2,13 @@ import { Link } from 'react-router-dom';
 
 export default function NotFoundPage() {
   return (
-    <div className="resume-page">
-      <section className="section section--centered not-found-page">
-        <p className="eyebrow">Page not found</p>
-        <h1>This page is not available.</h1>
-        <p>The address may have changed, or the page may no longer exist.</p>
-        <Link className="button-link button-link--primary" to="/">
-          Return home
+    <div className="bee-section">
+      <section className="not-found-page">
+        <p className="bee-kicker">Well, honey.</p>
+        <h1>This page flew the hive.</h1>
+        <p>Let’s get you back to the good stuff.</p>
+        <Link className="bee-button bee-button--dark" to="/">
+          Return to Bee Loved Home
         </Link>
       </section>
     </div>

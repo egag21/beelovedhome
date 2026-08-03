@@ -6,19 +6,19 @@ import RouteMeta from '../app/RouteMeta';
 describe('RouteMeta', () => {
   it('sets route-specific title, description, and canonical URL', () => {
     render(
-      <MemoryRouter initialEntries={['/portfolio']}>
+      <MemoryRouter initialEntries={['/']}>
         <RouteMeta />
       </MemoryRouter>,
     );
 
-    expect(document.title).toBe('Selected Work | Jeffrey Gage');
+    expect(document.title).toBe('Bee Loved Home | Handmade Beeswax Wraps');
     expect(document.querySelector('meta[name="description"]')).toHaveAttribute(
       'content',
-      expect.stringContaining('Case studies'),
+      expect.stringContaining('Colorado Springs'),
     );
     expect(document.querySelector('link[rel="canonical"]')).toHaveAttribute(
       'href',
-      'https://jeffgage.net/portfolio',
+      'https://beelovedhome.com',
     );
   });
 });

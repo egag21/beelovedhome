@@ -1,42 +1,18 @@
-export {
-  contact,
-  imagePrompts,
-  professionalSummary,
-  resumePdfPath,
-} from '../data/resumeContent';
-
 export const siteMeta = {
-  siteName: 'Jeffrey Gage',
-  siteUrl: 'https://jeffgage.net',
-  defaultTitle: 'Jeffrey Gage | Editorial, Communications & Digital Product Professional',
-  defaultDescription:
-    'Jeffrey Gage is an editorial, communications, and digital product professional based in Colorado Springs, Colorado.',
-  socialImage: '/images/hero-editorial-background.png',
+  siteName: 'Bee Loved Home',
+  siteUrl: 'https://beelovedhome.com',
+  defaultTitle: 'Bee Loved Home | Handmade Beeswax Wraps',
+  defaultDescription: 'Small-batch beeswax wraps handmade in Colorado Springs to keep sourdough and everyday foods fresh naturally.',
+  socialImage: '/images/bee-loved-wraps.png',
 };
 
 export const routeMeta = {
   '/': {
     title: siteMeta.defaultTitle,
-    description:
-      'Jeffrey Gage brings 25+ years of editorial, communications, publishing, and digital product experience to complex work.',
-  },
-  '/portfolio': {
-    title: 'Selected Work | Jeffrey Gage',
-    description:
-      'Case studies in product analysis, UX design, front-end prototyping, editing, and strategic communications.',
-  },
-  '/about': {
-    title: 'About Jeffrey Gage',
-    description:
-      'Learn about Jeffrey Gage’s career connecting communications, technology, publishing, and international collaboration.',
-  },
-  '/cv-contact': {
-    title: 'CV & Contact | Jeffrey Gage',
-    description:
-      'Review Jeffrey Gage’s professional experience, competencies, education, and contact information.',
+    description: siteMeta.defaultDescription,
   },
   notFound: {
-    title: 'Page Not Found | Jeffrey Gage',
-    description: 'The requested page could not be found.',
+    title: 'Page Not Found | Bee Loved Home',
+    description: 'That page has flown the hive. Return home to Bee Loved Home.',
   },
 };

@@ -25,23 +25,15 @@ describe('SiteHeader', () => {
     expect(toggle).toHaveAccessibleName('Open menu');
   });
 
-  it('uses the solid header treatment only on Home', () => {
-    const { unmount } = render(
-      <MemoryRouter initialEntries={['/']}>
-        <SiteHeader />
-      </MemoryRouter>,
-    );
-
-    expect(document.querySelector('.site-header')).toHaveClass('site-header--home');
-
-    unmount();
-
+  it('links the brand home and navigation to page sections', () => {
     render(
-      <MemoryRouter initialEntries={['/about']}>
+      <MemoryRouter>
         <SiteHeader />
       </MemoryRouter>,
     );
 
-    expect(document.querySelector('.site-header')).not.toHaveClass('site-header--home');
+    expect(screen.getByRole('link', { name: 'Bee Loved Home, home' })).toHaveAttribute('href', '/');
+    expect(screen.getByRole('link', { name: 'Our wraps' })).toHaveAttribute('href', '#wraps');
+    expect(screen.getByRole('link', { name: 'Find us' })).toHaveAttribute('href', '#find-us');
   });
 });
