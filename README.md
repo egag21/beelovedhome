@@ -1,122 +1,117 @@
-# jeffgage.net
+# Bee Loved Home
 
-Jeffrey Gage's portfolio and résumé site, plus a preserved component library
-for building future sites.
+Brochure website for **Bee Loved Home**, a small home-and-kitchen goods business
+based in Colorado Springs, Colorado.
 
-## Stack
+Bee Loved Home is beginning with handmade beeswax wraps designed to help
+sourdough stay fresh longer naturally. The site introduces the product, shares
+Carrie's story, explains wrap care, and directs customers to local farmers
+markets—including a recurring Saturday market in Monument, Colorado.
+
+Intended domain: [beelovedhome.com](https://beelovedhome.com)
+
+## Current site
+
+The site is a responsive, single-page React experience with:
+
+- Original Bee Loved Home branding and color system
+- A sourdough-wrap product introduction
+- Handmade product imagery
+- Instructions for using and caring for beeswax wraps
+- Carrie's small-batch business story
+- Colorado Springs and Monument market information
+- Frequently asked questions
+- Search, social-sharing, sitemap, and local-business metadata
+
+Specific market times, contact information, social accounts, pricing, and
+online ordering are intentionally omitted until those details are confirmed.
+
+## Technology
 
 - React 19
 - React Router
 - Vite
 - Plain CSS
 - Vitest and Testing Library
+- ESLint
+
+Node.js 20.19 or newer is required.
 
 ## Local development
 
-Requires Node.js 20.19 or newer.
+Install the locked dependencies and start Vite:
 
 ```bash
-npm install
+npm ci
 npm run dev
 ```
 
-The development server prints the local URL when it starts.
+Vite will print the local preview URL, normally `http://localhost:5173`.
 
-## Commands
+## Available commands
 
 ```bash
-npm run dev
+npm run dev       # Start the development server
+npm run build     # Create a production build in dist/
+npm run preview   # Preview the production build
+npm run lint      # Run ESLint
+npm test          # Run the test suite once
+npm run test:watch
+```
+
+Before publishing changes, run:
+
+```bash
 npm run lint
 npm test
 npm run build
-npm run preview
 ```
-
-Run lint, tests, and the production build before publishing changes.
 
 ## Public routes
 
-- `/` — Home
-- `/portfolio` — Portfolio case studies
-- `/about` — Biography and career overview
-- `/cv-contact` — Full CV and contact information
-- `/home` — Compatibility redirect to `/`
-- all other public paths — Intentional not-found page
+- `/` — Bee Loved Home brochure page
+- `/home` — Redirects to `/`
+- Any unmatched path — Branded not-found page
 
 ## Project structure
 
 ```text
 src/
-  app/             Application shell, route behavior, and metadata
-  catalog/         Development-only component catalog and registry
-  components/
-    layouts/       Preserved original layout options
-    site/          New reusable variants created for this site
-  content/         Organized site, résumé, and portfolio content
-  data/            Original shared résumé data source
-  features/        Focused portfolio case-study components
-  pages/           Active public route components
-  styles/          Site tokens and shared utilities
-  test/            Component and content regression tests
+  app/                 Site shell, route behavior, and metadata
+  components/site/     Active header and footer
+  content/site.js      Site-wide metadata
+  pages/HomePage.jsx   Main brochure content
+  styles/              Brand tokens and shared utilities
+  test/                Component and content regression tests
+
+public/
+  images/              Live product imagery
+  favicon.svg          Bee Loved Home site icon
+  robots.txt           Search crawler rules
+  sitemap.xml          Public URL index
+  site.webmanifest     Installable-site metadata
 ```
 
-The original components in `src/components` and `src/components/layouts` are
-intentionally retained. Do not delete or overwrite an existing component when a
-site requires different behavior. Add a new named option under
-`src/components/site` or another clearly documented variant directory.
+The repository was cloned from an earlier résumé site. Its reusable layout
+catalog and source components remain available as building blocks, but they are
+not part of the active public experience.
 
-See [Component library](docs/component-library.md) for the preservation rules
-and catalog workflow.
+## Product image
 
-## Component catalog
+The current editorial product image is an AI-generated launch asset created for
+this prototype. Replace it with Carrie's real product photography when the
+first production wrap patterns are finalized:
 
-The catalog is available as separate development entry points:
-
-- `/catalog.html` — new reusable variants
-- `/layout-catalog.html` — preserved layout selector
-- `/services-example.html` — preserved services-page example
-
-These HTML entries are not part of the production build input, so catalog code,
-styles, and large example assets stay out of the public site bundle.
-
-## Content ownership
-
-- `src/data/resumeContent.js` remains the compatibility source for the original
-  component set.
-- `src/content/site.js` contains route metadata and site-wide values.
-- `src/content/resume.js` exposes résumé content and working principles.
-- `src/content/portfolio.js` contains structured case-study details and media
-  metadata.
-
-Keep factual résumé claims source-backed. Avoid duplicating dates, job titles,
-project metrics, or contact information inside rendering components.
-
-## Media
-
-Original high-resolution files remain in `public/images` and
-`public/portfolio`. Optimized live-site derivatives are stored in:
-
-- `public/images/optimized`
-- `public/portfolio/grn/previews`
-
-Preserve originals when creating a smaller delivery asset. Portfolio previews
-should link to the full-resolution artifact when the additional detail is
-useful.
+```text
+public/images/bee-loved-wraps.png
+```
 
 ## Deployment
 
-The project builds to `dist/` and requires an SPA fallback to `index.html`.
-`public/_redirects` currently provides that fallback for compatible hosts.
+`npm run build` produces the static site in `dist/`. The host must serve
+`index.html` as the fallback for client-side routes; `public/_redirects`
+provides this rule on compatible platforms.
 
-The repository does not currently contain `.openai/hosting.json`; deployment
-remains with the existing hosting workflow.
-
-## Dependency audit note
-
-The production audit currently reports the React Router RSC-mode CSRF advisory.
-This site uses a client-only `BrowserRouter` with no React Server Components,
-server actions, loaders, or mutation endpoints, so the affected execution path
-is not present in this deployment. Keep React Router current and recheck the
-advisory when a patched release becomes available; do not downgrade solely to
-satisfy the audit suggestion, because older releases contain additional fixed
-advisories.
+This clone does not yet contain a Bee Loved Home hosting configuration. Before
+publishing, update the Git remote and deployment target so changes are not sent
+to the original résumé-site repository.
