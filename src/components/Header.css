@@ -29,7 +29,7 @@
 .logo-link {
   display: inline-flex;
   align-items: center;
-  gap: 0.7rem;
+  gap: 0.9rem;
   color: var(--forest);
   font-size: 1rem;
   font-weight: 800;
@@ -37,19 +37,24 @@
 }
 
 .logo-mark {
-  display: grid;
-  place-items: center;
-  width: 42px;
-  height: 46px;
-  color: var(--tomato);
-  font-size: 1.1rem;
-  background: var(--honey);
-  clip-path: polygon(25% 5%, 75% 5%, 100% 50%, 75% 95%, 25% 95%, 0 50%);
+  display: block;
+  width: 43px;
+  height: 49px;
+  flex: 0 0 auto;
 }
 
-.logo-words { display: grid; line-height: 1; letter-spacing: .08em; }
-.logo-words strong { font-family: Georgia, serif; font-size: 1.05rem; }
-.logo-words small { margin-top: .25rem; font-size: .57rem; letter-spacing: .38em; }
+.logo-mark svg { display: block; width: 100%; height: 100%; overflow: visible; }
+.logo-mark__cell { fill: var(--honey); stroke: var(--forest); stroke-width: 1.6; stroke-linejoin: round; }
+.logo-mark__wing { fill: var(--cream); stroke: var(--tomato); stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.logo-mark__body { fill: var(--tomato); stroke: var(--forest); stroke-width: 1.5; }
+.logo-mark__stripe { fill: none; stroke: var(--honey-light); stroke-width: 1.8; stroke-linecap: round; }
+
+.logo-words { display: grid; min-width: 0; line-height: 1; }
+.logo-words__name { display: flex; align-items: center; gap: .42rem; }
+.logo-words__name strong { font-family: Georgia, serif; font-size: 1.08rem; font-weight: 700; letter-spacing: .13em; white-space: nowrap; }
+.logo-words__name i { color: var(--tomato); font-size: .52rem; font-style: normal; }
+.logo-words small { display: flex; align-items: center; gap: .5rem; margin-top: .38rem; color: var(--leaf); font-size: .48rem; font-weight: 800; letter-spacing: .22em; line-height: 1; text-transform: uppercase; white-space: nowrap; }
+.logo-words small b { color: var(--tomato); font-size: .7rem; }
 
 .nav {
   display: flex;
@@ -193,4 +198,13 @@
     border-radius: 0;
     background: rgba(12, 8, 24, 0.34);
   }
+}
+
+@media (max-width: 520px) {
+  .header-container { min-height: 76px; }
+  .logo-link { gap: .65rem; }
+  .logo-mark { width: 36px; height: 42px; }
+  .logo-words__name { gap: .3rem; }
+  .logo-words__name strong { font-size: .88rem; letter-spacing: .1em; }
+  .logo-words small { gap: .3rem; font-size: .4rem; letter-spacing: .13em; }
 }

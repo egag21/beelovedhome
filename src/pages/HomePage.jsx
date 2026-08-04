@@ -1,3 +1,5 @@
+import { businessEmail, businessEmailHref } from '../content/site';
+
 export default function HomePage() {
   return (
     <div className="bee-home">
@@ -95,6 +97,7 @@ export default function HomePage() {
           <h2>Find us up the road<br />in Monument.</h2>
           <p>Carrie brings Bee Loved Home to a farmers market in Monument, Colorado, every Saturday, with more Colorado Springs–area market visits along the way.</p>
           <p className="market-note"><span aria-hidden="true">☀</span> Market details and weekly inventory can change—check back soon for the latest stop.</p>
+          <a className="market-email" href={businessEmailHref}>Ask about this week’s market <span aria-hidden="true">→</span></a>
         </div>
         <div className="market-map" aria-hidden="true">
           <span className="map-spring">Colorado Springs</span>
@@ -139,7 +142,10 @@ export default function HomePage() {
         <p className="bee-kicker">From our hands to your table</p>
         <h2>Let your loaf<br /><em>bee loved.</em></h2>
         <p>Come meet Carrie, feel the wraps, and pick the pattern that belongs in your kitchen.</p>
-        <a className="bee-button bee-button--light" href="#find-us">Find Bee Loved Home</a>
+        <div className="closing-actions">
+          <a className="bee-button bee-button--light" href="#find-us">Find Bee Loved Home</a>
+          <a className="closing-email" href={businessEmailHref}>Email {businessEmail}</a>
+        </div>
       </section>
     </div>
   );

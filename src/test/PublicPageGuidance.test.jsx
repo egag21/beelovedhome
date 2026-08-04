@@ -20,6 +20,10 @@ describe('Bee Loved Home public content', () => {
 
     expect(screen.getByText(/farmers market in Monument, Colorado, every Saturday/i)).toBeInTheDocument();
     expect(screen.getByRole('link', { name: 'Find us this Saturday' })).toHaveAttribute('href', '#find-us');
+    expect(screen.getByRole('link', { name: /Ask about this week’s market/ })).toHaveAttribute(
+      'href',
+      'mailto:info@beelovedhome.com',
+    );
   });
 
   it('includes accessible wrap-care and FAQ content', () => {

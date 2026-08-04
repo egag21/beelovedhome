@@ -23,7 +23,7 @@ The site is a responsive, single-page React experience with:
 - Frequently asked questions
 - Search, social-sharing, sitemap, and local-business metadata
 
-Specific market times, contact information, social accounts, pricing, and
+Specific market times, social accounts, pricing, and
 online ordering are intentionally omitted until those details are confirmed.
 
 ## Technology

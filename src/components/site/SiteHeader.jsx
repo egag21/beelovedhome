@@ -22,8 +22,19 @@ export default function SiteHeader() {
       <div className="header-container">
         <p className="logo">
           <Link to="/" className="logo-link" aria-label="Bee Loved Home, home">
-            <span className="logo-mark" aria-hidden="true">♥</span>
-            <span className="logo-words"><strong>BEE LOVED</strong><small>HOME</small></span>
+            <span className="logo-mark" aria-hidden="true">
+              <svg viewBox="0 0 64 72" focusable="false">
+                <path className="logo-mark__cell" d="M18 4h28l14 32-14 32H18L4 36z" />
+                <path className="logo-mark__wing logo-mark__wing--left" d="M31 34c-3-11-16-12-17-3-1 7 9 10 17 7" />
+                <path className="logo-mark__wing logo-mark__wing--right" d="M33 34c3-11 16-12 17-3 1 7-9 10-17 7" />
+                <path className="logo-mark__body" d="M32 28c7 5 7 18 0 23-7-5-7-18 0-23Z" />
+                <path className="logo-mark__stripe" d="M28 36h8M28 41h8" />
+              </svg>
+            </span>
+            <span className="logo-words">
+              <span className="logo-words__name"><strong>BEE</strong><i aria-hidden="true">✦</i><strong>LOVED</strong></span>
+              <small><span>Home goods</span><b aria-hidden="true">·</b><span>Colorado Springs</span></small>
+            </span>
           </Link>
         </p>
         <button

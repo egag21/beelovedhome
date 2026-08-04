@@ -6,6 +6,9 @@ export const siteMeta = {
   socialImage: '/images/bee-loved-wraps.png',
 };
 
+export const businessEmail = 'info@beelovedhome.com';
+export const businessEmailHref = `mailto:${businessEmail}`;
+
 export const routeMeta = {
   '/': {
     title: siteMeta.defaultTitle,
