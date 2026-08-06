@@ -6,7 +6,7 @@ export default function HomePage() {
       <section className="bee-hero" id="home">
         <div className="bee-hero__copy">
           <p className="bee-kicker">Handmade in Colorado Springs</p>
-          <h1>Keep good bread<br /><em>good longer.</em></h1>
+          <h1>Keep good bread<br /><em>good longer</em></h1>
           <p className="bee-hero__intro">
             Small-batch beeswax wraps made by Carrie to help your sourdough stay
             fresh, naturally—without the plastic bag.
